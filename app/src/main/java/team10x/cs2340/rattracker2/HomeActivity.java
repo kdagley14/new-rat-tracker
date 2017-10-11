@@ -1,12 +1,22 @@
 package team10x.cs2340.rattracker2;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,23 +39,43 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        List<RatReport> rats = new ArrayList<RatReport>();
-        rats.add(new RatReport("1", "10/10/2017", "12345", "brooklyn"));
-        rats.add(new RatReport("2", "10/11/2017", "12348", "staten island"));
 
-        List<String> testArray = new ArrayList<String>();
-        for (RatReport i: rats) {
-            testArray.add(i.toListString());
-        }
+        Response.Listener<String> listener = new Response.Listener<String>() {
 
-        // This is the array adapter, it takes the context of the activity as a
-        // first parameter, the type of list view as a second parameter and your
-        // array as a third parameter.
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_list_item_1,
-                testArray );
+            @Override
+            public void onResponse(String response) {
+                try {
+                    // get the JSON object returned from the database
+                    JSONArray jsonResponse = new JSONArray(response);
+                    List<RatReport> rats = new ArrayList<RatReport>();
+                    for (int i = 0; i < jsonResponse.length(); i++) {
+                        JSONObject x = jsonResponse.getJSONObject(i);
+                        rats.add(new RatReport(x.getString("primaryId"), x.getString("date"), x.getString("zip"),
+                                x.getString("borough")));
+                    }
+                    List<String> testArray = new ArrayList<String>();
+                    for (RatReport i: rats) {
+                        testArray.add(i.toListString());
+                    }
 
-        lvReports.setAdapter(arrayAdapter);
+                    // This is the array adapter, it takes the context of the activity as a
+                    // first parameter, the type of list view as a second parameter and your
+                    // array as a third parameter.
+                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                            HomeActivity.this,
+                            android.R.layout.simple_list_item_1,
+                            testArray );
+
+                    lvReports.setAdapter(arrayAdapter);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+
+        ListRequest request = new ListRequest(listener);
+        RequestQueue queue = Volley.newRequestQueue(HomeActivity.this);
+        queue.add(request);
     }
 }

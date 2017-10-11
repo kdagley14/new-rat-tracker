@@ -1,0 +1,18 @@
+package team10x.cs2340.rattracker2;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class ListRequest extends StringRequest {
+
+    private static final String LIST_REQUEST_URL = "http://rat-tracker.000webhostapp.com/List.php";
+
+    // access the database and get the first 20 rat reports
+    public ListRequest(Response.Listener<String> listener) {
+        super(Request.Method.POST, LIST_REQUEST_URL, listener, null);
+    }
+}

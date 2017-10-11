@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -67,12 +68,10 @@ public class RegisterActivity extends AppCompatActivity {
 
                                 // check if the login was successful
                                 if (success) {
-
                                     // switch to the login screen
                                     Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
                                     RegisterActivity.this.startActivity(loginIntent);
                                 } else {
-
                                     // alert the user that registration failed
                                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
                                     builder.setMessage("Email already in use")
