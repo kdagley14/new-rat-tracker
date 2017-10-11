@@ -48,42 +48,50 @@ public class RegisterActivity extends AppCompatActivity {
                 final String password = etPassword.getText().toString();
                 final String user_type = sUserType.getSelectedItem().toString();
 
-                Response.Listener<String> listener = new Response.Listener<String>() {
+                if (name.equals("") || username.equals("") || password.equals("")) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                    builder.setMessage("No field may be null")
+                            .setNegativeButton("Retry", null)
+                            .create()
+                            .show();
+                } else {
 
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            // get the JSON object returned from the database
-                            JSONObject jsonResponse = new JSONObject(response);
-                            boolean success = jsonResponse.getBoolean("success");
+                    Response.Listener<String> listener = new Response.Listener<String>() {
 
-                            // check if the login was successful
-                            if(success) {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                // get the JSON object returned from the database
+                                JSONObject jsonResponse = new JSONObject(response);
+                                boolean success = jsonResponse.getBoolean("success");
 
-                                // switch to the login screen
-                                Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                RegisterActivity.this.startActivity(loginIntent);
-                            } else {
+                                // check if the login was successful
+                                if (success) {
 
-                                // alert the user that registration failed
-                                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-                                builder.setMessage("Registration Failed")
-                                        .setNegativeButton("Retry", null)
-                                        .create()
-                                        .show();
+                                    // switch to the login screen
+                                    Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                    RegisterActivity.this.startActivity(loginIntent);
+                                } else {
+
+                                    // alert the user that registration failed
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                                    builder.setMessage("Email already in use")
+                                            .setNegativeButton("Retry", null)
+                                            .create()
+                                            .show();
+                                }
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
-                    }
-                };
+                    };
 
-                // create the register request and add it to the queue
-                RegisterRequest request = new RegisterRequest(name, username, password, user_type, listener);
-                RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
-                queue.add(request);
-
+                    // create the register request and add it to the queue
+                    RegisterRequest request = new RegisterRequest(name, username, password, user_type, listener);
+                    RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+                    queue.add(request);
+                }
             }
         });
 
