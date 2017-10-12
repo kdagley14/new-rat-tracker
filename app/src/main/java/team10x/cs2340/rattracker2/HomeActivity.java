@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.android.volley.RequestQueue;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
+    public List<RatReport> rats;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -40,15 +42,14 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
-        Response.Listener<String> listener = new Response.Listener<String>() {
+        final Response.Listener<String> listener = new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
                 try {
                     // get the JSON object returned from the database
                     JSONArray jsonResponse = new JSONArray(response);
-                    List<RatReport> rats = new ArrayList<RatReport>();
+                    rats = new ArrayList<RatReport>();
                     for (int i = 0; i < jsonResponse.length(); i++) {
                         JSONObject x = jsonResponse.getJSONObject(i);
                         rats.add(new RatReport(x.getString("primaryId"), x.getString("date"), x.getString("zip"),
@@ -82,7 +83,10 @@ public class HomeActivity extends AppCompatActivity {
         lvReports.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                RatReport rat = rats.get(position);
+                String reportId = rat.getPrimaryId();
                 Intent detailIntent = new Intent(HomeActivity.this, DetailReportActivity.class);
+                detailIntent.putExtra("primary_id", reportId);
                 HomeActivity.this.startActivity(detailIntent);
             }
         });

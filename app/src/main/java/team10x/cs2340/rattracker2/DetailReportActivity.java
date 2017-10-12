@@ -1,11 +1,25 @@
 package team10x.cs2340.rattracker2;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DetailReportActivity extends AppCompatActivity {
 
@@ -25,5 +39,31 @@ public class DetailReportActivity extends AppCompatActivity {
             }
         });
 
+        Bundle extras = getIntent().getExtras();
+        String reportId = extras.getString("primary_id");
+        Log.i("report id WOWOOWOW: ", reportId);
+
+        Response.Listener<String> listener = new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                try {
+                    // get the JSON object returned from the database
+                    JSONObject x = new JSONObject(response);
+                    RatReport rat = new RatReport(x.getString("primaryId"), x.getString("date"),
+                            x.getString("locationType"), x.getString("zip"), x.getString("address"),
+                            x.getString("city"), x.getString("borough"), x.getString("latitude"),
+                            x.getString("longitude"));
+                    tvDetails.setText(rat.toDetailString());
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        DetailRequest request = new DetailRequest(reportId, listener);
+        RequestQueue queue = Volley.newRequestQueue(DetailReportActivity.this);
+        queue.add(request);
     }
 }
