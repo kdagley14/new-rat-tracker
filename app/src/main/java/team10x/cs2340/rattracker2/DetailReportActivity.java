@@ -28,9 +28,11 @@ public class DetailReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_report);
 
+        //layout objects
         final Button bBack = (Button) findViewById(R.id.back_button);
         final TextView tvDetails = (TextView) findViewById(R.id.tvReportDetails);
 
+        //if user hits back, go back to homepage
         bBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,9 +41,9 @@ public class DetailReportActivity extends AppCompatActivity {
             }
         });
 
+        //get primary id of the report clicked
         Bundle extras = getIntent().getExtras();
         String reportId = extras.getString("primary_id");
-        Log.i("report id WOWOOWOW: ", reportId);
 
         Response.Listener<String> listener = new Response.Listener<String>() {
 
@@ -50,10 +52,12 @@ public class DetailReportActivity extends AppCompatActivity {
                 try {
                     // get the JSON object returned from the database
                     JSONObject x = new JSONObject(response);
+                    //turn into a RatReport object
                     RatReport rat = new RatReport(x.getString("primaryId"), x.getString("date"),
                             x.getString("locationType"), x.getString("zip"), x.getString("address"),
                             x.getString("city"), x.getString("borough"), x.getString("latitude"),
                             x.getString("longitude"));
+                    //set textview to show the tostring version that displays all fields
                     tvDetails.setText(rat.toDetailString());
 
                 } catch (JSONException e) {
@@ -61,7 +65,7 @@ public class DetailReportActivity extends AppCompatActivity {
                 }
             }
         };
-
+        //create request & add to queue
         DetailRequest request = new DetailRequest(reportId, listener);
         RequestQueue queue = Volley.newRequestQueue(DetailReportActivity.this);
         queue.add(request);

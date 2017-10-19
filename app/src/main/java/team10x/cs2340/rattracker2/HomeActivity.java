@@ -37,8 +37,12 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        //layout objects
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mToggle = new ActionBarDrawerToggle(HomeActivity.this, mDrawerLayout, R.string.open, R.string.closed);
+        final ListView lvReports = (ListView) findViewById(R.id.lvReports);
+        final Button bLogout = (Button) findViewById(R.id.logout_button);
+        final Button bCreateReport = (Button) findViewById(R.id.create_report_button);
         final ListView lvReports = (ListView) findViewById(R.id.lvReports);
 
         mDrawerLayout.addDrawerListener(mToggle);
@@ -47,6 +51,18 @@ public class HomeActivity extends AppCompatActivity {
 
         NavigationView nv = (NavigationView)findViewById(R.id.navigation_view);
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
+        //return to main screen (where you select login or register)
+        bLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent logoutIntent = new Intent(HomeActivity.this, MainActivity.class);
+                HomeActivity.this.startActivity(logoutIntent);
+            }
+        });
+
+        //go to add report screen
+        bCreateReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
@@ -66,6 +82,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        //generate list from database
         final Response.Listener<String> listener = new Response.Listener<String>() {
 
             @Override
@@ -74,11 +91,13 @@ public class HomeActivity extends AppCompatActivity {
                     // get the JSON object returned from the database
                     JSONArray jsonResponse = new JSONArray(response);
                     rats = new ArrayList<RatReport>();
+                    //turn innto ratreport objects
                     for (int i = 0; i < jsonResponse.length(); i++) {
                         JSONObject x = jsonResponse.getJSONObject(i);
                         rats.add(new RatReport(x.getString("primaryId"), x.getString("date"), x.getString("zip"),
                                 x.getString("borough")));
                     }
+                    //create a list of the tostrings that just show the date, borough, & zip
                     List<String> testArray = new ArrayList<String>();
                     for (RatReport i: rats) {
                         testArray.add(i.toListString());
@@ -99,11 +118,14 @@ public class HomeActivity extends AppCompatActivity {
             }
         };
 
-
+        //create request & add to queue
         ListRequest request = new ListRequest(listener);
         RequestQueue queue = Volley.newRequestQueue(HomeActivity.this);
         queue.add(request);
 
+        //when you click an item, get the primary id of the corresponding ratreport & send to
+        //the detailpage activity so it can get the rest of the information from the database;
+        //goes to detail page
         lvReports.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
