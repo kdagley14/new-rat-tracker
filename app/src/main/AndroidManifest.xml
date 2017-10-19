@@ -21,7 +21,8 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".DetailReportActivity"></activity>
+        <activity android:name=".DetailReportActivity" />
+        <activity android:name=".CreateReportActivity"></activity>
     </application>
 
 </manifest>

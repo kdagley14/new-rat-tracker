@@ -32,6 +32,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         final Button bLogout = (Button) findViewById(R.id.logout_button);
+        final Button bCreateReport = (Button) findViewById(R.id.create_report_button);
         final ListView lvReports = (ListView) findViewById(R.id.lvReports);
 
         bLogout.setOnClickListener(new View.OnClickListener() {
@@ -39,6 +40,14 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent logoutIntent = new Intent(HomeActivity.this, MainActivity.class);
                 HomeActivity.this.startActivity(logoutIntent);
+            }
+        });
+
+        bCreateReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent createReportIntent = new Intent(HomeActivity.this, CreateReportActivity.class);
+                HomeActivity.this.startActivity(createReportIntent);
             }
         });
 

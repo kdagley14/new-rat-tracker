@@ -12,6 +12,15 @@
         android:layout_alignParentTop="true"
         android:text="Logout" />
 
+    <Button
+        android:id="@+id/create_report_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Add New Rat Report" />
+
     <ListView
         android:id="@+id/lvReports"
         android:layout_width="match_parent"
