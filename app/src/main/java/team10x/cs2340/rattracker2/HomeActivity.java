@@ -4,26 +4,20 @@ import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,8 +36,6 @@ public class HomeActivity extends AppCompatActivity {
         mToggle = new ActionBarDrawerToggle(HomeActivity.this, mDrawerLayout, R.string.open, R.string.closed);
         final ListView lvReports = (ListView) findViewById(R.id.lvReports);
         final Button bLogout = (Button) findViewById(R.id.logout_button);
-        final Button bCreateReport = (Button) findViewById(R.id.create_report_button);
-        final ListView lvReports = (ListView) findViewById(R.id.lvReports);
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
@@ -52,17 +44,6 @@ public class HomeActivity extends AppCompatActivity {
         NavigationView nv = (NavigationView)findViewById(R.id.navigation_view);
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
-        //return to main screen (where you select login or register)
-        bLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent logoutIntent = new Intent(HomeActivity.this, MainActivity.class);
-                HomeActivity.this.startActivity(logoutIntent);
-            }
-        });
-
-        //go to add report screen
-        bCreateReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {

@@ -70,9 +70,6 @@ public class CreateReportActivity extends AppCompatActivity {
         });
 
         bClear.setOnClickListener(new View.OnClickListener() {
-
-        //if you hit cancel, go back to the home page and do nothing
-        bCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 etDate.setText("");
@@ -84,11 +81,9 @@ public class CreateReportActivity extends AppCompatActivity {
                 etBorough.setText("");
                 etLatitude.setText("");
                 etLongitude.setText("");
-
             }
         });
 
-        //if you hit create, add the report to the database
         bCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
