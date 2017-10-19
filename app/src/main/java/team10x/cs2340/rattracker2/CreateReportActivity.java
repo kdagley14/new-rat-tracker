@@ -22,6 +22,7 @@ public class CreateReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_report);
 
+        //the objects from the layout
         final EditText etDate = (EditText) findViewById(R.id.etDate);
         final EditText etTime = (EditText) findViewById(R.id.etTime);
         final EditText etLocationType = (EditText) findViewById(R.id.etLocationType);
@@ -34,6 +35,7 @@ public class CreateReportActivity extends AppCompatActivity {
         final Button bCreate = (Button) findViewById(R.id.create_button);
         final Button bCancel = (Button) findViewById(R.id.cancel_button);
 
+        //if you hit cancel, go back to the home page and do nothing
         bCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,10 +44,11 @@ public class CreateReportActivity extends AppCompatActivity {
             }
         });
 
+        //if you hit create, add the report to the database
         bCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // get the username(email) and password the user entered
+                // get the text the user entered in each field
                 final String date = etDate.getText().toString();
                 final String time = etTime.getText().toString();
                 final String locationType = etLocationType.getText().toString();
@@ -73,7 +76,7 @@ public class CreateReportActivity extends AppCompatActivity {
                         }
                     }
                 };
-                // create the login request and add it to the queue
+                // create the request and add it to the queue
                 CreateReportRequest request = new CreateReportRequest(date, time, locationType, zip, address, city, borough, latitude, longitude, listener);
                 RequestQueue queue = Volley.newRequestQueue(CreateReportActivity.this);
                 queue.add(request);
