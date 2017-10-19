@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/reports_list"
+        android:icon="@mipmap/ic_list_black_24dp"
+        android:title="List of Rat Reports"/>
+
+    <item android:id="@+id/create_report"
+        android:icon="@mipmap/ic_add_black_24dp"
+        android:title="Add New Rat Report"/>
+
+    <item android:id="@+id/logout"
+        android:icon="@mipmap/ic_exit_to_app_black_24dp"
+        android:title="Log Out"/>
+
+</menu>

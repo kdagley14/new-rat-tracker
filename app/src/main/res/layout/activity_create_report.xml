@@ -1,148 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<android.support.v4.widget.DrawerLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="team10x.cs2340.rattracker2.CreateReportActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout">
 
-    <TextView
-        android:id="@+id/tvHeading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="88dp"
-        android:layout_marginTop="16dp"
-        android:text="Create a Rat Report"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="team10x.cs2340.rattracker2.CreateReportActivity">
 
-    <EditText
-        android:id="@+id/etDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Date"
-        android:inputType="date"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvHeading"
-        android:layout_marginLeft="85dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        <TextView
+            android:id="@+id/tvHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="88dp"
+            android:layout_marginTop="16dp"
+            android:text="Create a Rat Report"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Time"
-        android:inputType="time"
-        android:layout_marginLeft="85dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/etDate" />
+        <EditText
+            android:id="@+id/etDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Date"
+            android:inputType="date"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvHeading"
+            android:layout_marginLeft="85dp"
+            app:layout_constraintLeft_toLeftOf="parent" />
 
-    <EditText
-        android:id="@+id/etLocationType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Location Type"
-        android:inputType="textPersonName"
-        android:layout_marginLeft="85dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/etTime" />
+        <EditText
+            android:id="@+id/etTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Time"
+            android:inputType="time"
+            android:layout_marginLeft="85dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/etDate" />
 
-    <EditText
-        android:id="@+id/etZipCode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Zip Code"
-        android:inputType="number"
-        android:layout_marginLeft="85dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/etLocationType" />
+        <EditText
+            android:id="@+id/etLocationType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Location Type"
+            android:inputType="textPersonName"
+            android:layout_marginLeft="85dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/etTime" />
 
-    <EditText
-        android:id="@+id/etAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Address"
-        android:inputType="textPersonName"
-        android:layout_marginLeft="85dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/etZipCode" />
+        <EditText
+            android:id="@+id/etZipCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Zip Code"
+            android:inputType="number"
+            android:layout_marginLeft="85dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/etLocationType" />
 
-    <EditText
-        android:id="@+id/etCity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="City"
-        android:inputType="textPersonName"
-        android:layout_marginLeft="85dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/etAddress" />
+        <EditText
+            android:id="@+id/etAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Address"
+            android:inputType="textPersonName"
+            android:layout_marginLeft="85dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/etZipCode" />
 
-    <EditText
-        android:id="@+id/etBorough"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Borough"
-        android:inputType="textPersonName"
-        android:layout_marginLeft="85dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/etCity" />
+        <EditText
+            android:id="@+id/etCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="City"
+            android:inputType="textPersonName"
+            android:layout_marginLeft="85dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/etAddress" />
 
-    <EditText
-        android:id="@+id/etLatitude"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Latitude"
-        android:inputType="numberDecimal"
-        android:layout_marginLeft="85dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/etBorough" />
+        <EditText
+            android:id="@+id/etBorough"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Borough"
+            android:inputType="textPersonName"
+            android:layout_marginLeft="85dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/etCity" />
 
-    <EditText
-        android:id="@+id/etLongitude"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="85dp"
-        android:layout_marginTop="0dp"
-        android:ems="10"
-        android:hint="Longitude"
-        android:inputType="numberDecimal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etLatitude" />
+        <EditText
+            android:id="@+id/etLatitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Latitude"
+            android:inputType="numberDecimal"
+            android:layout_marginLeft="85dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/etBorough" />
 
-    <Button
-        android:id="@+id/cancel_button"
-        android:layout_width="121dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="15dp"
-        android:text="Cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/create_button" />
+        <EditText
+            android:id="@+id/etLongitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="85dp"
+            android:layout_marginTop="0dp"
+            android:ems="10"
+            android:hint="Longitude"
+            android:inputType="numberDecimal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etLatitude" />
 
-    <Button
-        android:id="@+id/create_button"
-        android:layout_width="121dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="64dp"
-        android:text="Create"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        <Button
+            android:id="@+id/clear_button"
+            android:layout_width="121dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="15dp"
+            android:text="Clear"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/create_button" />
 
-</android.support.constraint.ConstraintLayout>
+        <Button
+            android:id="@+id/create_button"
+            android:layout_width="121dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="64dp"
+            android:text="Create"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.design.widget.NavigationView
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    app:menu="@menu/navigation_menu"
+    android:layout_gravity="start"
+    android:id="@+id/navigation_view">
+
+    </android.support.design.widget.NavigationView>
+</android.support.v4.widget.DrawerLayout>

@@ -20,6 +20,8 @@
     <string name="title_activity_login">Login</string>
     <string name="title_activity_home">U Dirty Rat</string>
     <string name="user_type">User Type</string>
+    <string name="open">Open</string>
+    <string name="closed">Closed</string>
 
     <string-array name="user_array">
         <item>User</item>

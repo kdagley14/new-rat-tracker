@@ -1,10 +1,14 @@
 package team10x.cs2340.rattracker2;
 
 import android.content.Intent;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -25,29 +29,40 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
     public List<RatReport> rats;
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mToggle;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        final Button bLogout = (Button) findViewById(R.id.logout_button);
-        final Button bCreateReport = (Button) findViewById(R.id.create_report_button);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mToggle = new ActionBarDrawerToggle(HomeActivity.this, mDrawerLayout, R.string.open, R.string.closed);
         final ListView lvReports = (ListView) findViewById(R.id.lvReports);
 
-        bLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent logoutIntent = new Intent(HomeActivity.this, MainActivity.class);
-                HomeActivity.this.startActivity(logoutIntent);
-            }
-        });
+        mDrawerLayout.addDrawerListener(mToggle);
+        mToggle.syncState();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        bCreateReport.setOnClickListener(new View.OnClickListener() {
+        NavigationView nv = (NavigationView)findViewById(R.id.navigation_view);
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                Intent createReportIntent = new Intent(HomeActivity.this, CreateReportActivity.class);
-                HomeActivity.this.startActivity(createReportIntent);
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case(R.id.reports_list):
+                        Intent reportsListIntent = new Intent(HomeActivity.this, HomeActivity.class);
+                        startActivity(reportsListIntent);
+                        break;
+                    case(R.id.create_report):
+                        Intent createReportIntent = new Intent(HomeActivity.this, CreateReportActivity.class);
+                        startActivity(createReportIntent);
+                        break;
+                    case(R.id.logout):
+                        Intent logoutIntent = new Intent(HomeActivity.this, MainActivity.class);
+                        startActivity(logoutIntent);
+                }
+                return true;
             }
         });
 
@@ -99,5 +114,13 @@ public class HomeActivity extends AppCompatActivity {
                 HomeActivity.this.startActivity(detailIntent);
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(mToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
