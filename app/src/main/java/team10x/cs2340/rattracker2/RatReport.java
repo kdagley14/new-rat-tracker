@@ -41,9 +41,10 @@ public class RatReport {
     }
 
     public String toDetailString() {
-        return "Date: \t\t" + date + "\nLocation Type: \t\t" + locationType + "\nZip Code: \t\t" + zip
-                + "\nAddress: \t\t" + address + "\nCity: \t\t" + city + "\nBorough: \t\t" + borough
-                + "\nLatitude: \t\t" + latitude + "\nLongitude: \t\t" + longitude;
+        return "Date: \t\t" + date + "\nLocation Type: \t\t" + locationType + "\nZip Code: \t\t"
+                + zip + "\nAddress: \t\t" + address + "\nCity: \t\t" + city + "\nBorough: \t\t"
+                + borough + "\nLatitude: \t\t" + latitude + "\nLongitude: \t\t" + longitude
+                + "\nReference #: \t\t" + primaryId;
     }
 
     public String getPrimaryId() {
