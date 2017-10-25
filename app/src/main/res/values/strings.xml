@@ -30,4 +30,5 @@
 
     <item name="visible" type="id" />
     <item name="masked" type="id" />
+    <string name="title_activity_map">Map</string>
 </resources>
