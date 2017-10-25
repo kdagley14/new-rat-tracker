@@ -61,6 +61,10 @@ public class CreateReportActivity extends AppCompatActivity {
                         Intent createReportIntent = new Intent(CreateReportActivity.this, CreateReportActivity.class);
                         startActivity(createReportIntent);
                         break;
+                    case(R.id.view_map):
+                        Intent viewMapIntent = new Intent(CreateReportActivity.this, MapActivity.class);
+                        startActivity(viewMapIntent);
+                        break;
                     case(R.id.logout):
                         Intent logoutIntent = new Intent(CreateReportActivity.this, MainActivity.class);
                         startActivity(logoutIntent);
