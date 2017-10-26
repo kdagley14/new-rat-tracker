@@ -7,8 +7,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -16,10 +21,19 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     private SupportMapFragment sMapFragment;
+    private ArrayList<RatReport> rats;
+    private GoogleMap map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,9 +81,41 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        this.map = googleMap;
         LatLng newYork = new LatLng(40, -73);
-        googleMap.addMarker(new MarkerOptions().position(newYork).title("HEY THERE"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(newYork));
+        map.addMarker(new MarkerOptions().position(newYork).title("HEY THERE"));
+        map.moveCamera(CameraUpdateFactory.newLatLng(newYork));
+        String start = "2016-01-01";
+        String end = "2016-01-03";
+        //generate list from database
+        final Response.Listener<String> listener = new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                try {
+                    // get the JSON object returned from the database
+                    JSONArray jsonResponse = new JSONArray(response);
+                    rats = new ArrayList<RatReport>();
+                    //turn innto ratreport objects
+                    for (int i = 0; i < jsonResponse.length(); i++) {
+                        JSONObject x = jsonResponse.getJSONObject(i);
+                        rats.add(new RatReport(x.getString("primaryId"), x.getString("date"), x.getString("address"),
+                                x.getString("latitude"), x.getString("longitude")));
+                    }
+                    for (RatReport report: rats) {
+                        map.addMarker(new MarkerOptions().position(report.getLatLong()).title(report.toMapString()));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        //create request & add to queue
+        MapRequest request = new MapRequest(start, end, listener);
+        RequestQueue queue = Volley.newRequestQueue(MapActivity.this);
+        queue.add(request);
+
     }
 
     @Override

@@ -1,5 +1,7 @@
 package team10x.cs2340.rattracker2;
 
+import com.google.android.gms.maps.model.LatLng;
+
 /**
  * Created by paige on 10/10/2017.
  */
@@ -23,6 +25,14 @@ public class RatReport {
         this.borough = borough;
     }
 
+    public RatReport(String primaryId, String date, String address, String latitude, String longitude) {
+        this.primaryId = primaryId;
+        this.date = date;
+        this.address = address;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
     public RatReport(String primaryId, String date, String locationType, String zip, String address,
                      String city, String borough, String latitude, String longitude) {
         this.primaryId = primaryId;
@@ -40,6 +50,10 @@ public class RatReport {
         return date + "       " + borough + ", " + zip;
     }
 
+    public String toMapString() {
+        return date + "   " + address;
+    }
+
     public String toDetailString() {
         return "Date: \t\t" + date + "\nLocation Type: \t\t" + locationType + "\nZip Code: \t\t"
                 + zip + "\nAddress: \t\t" + address + "\nCity: \t\t" + city + "\nBorough: \t\t"
@@ -51,4 +65,7 @@ public class RatReport {
         return primaryId;
     }
 
+    public LatLng getLatLong() {
+        return new LatLng(Double.parseDouble(this.latitude), Double.parseDouble(this.longitude));
+    }
 }
