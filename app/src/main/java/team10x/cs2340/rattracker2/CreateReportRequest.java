@@ -12,13 +12,12 @@ public class CreateReportRequest extends StringRequest {
     private Map<String, String> params;
 
     // access the database and add all of the rat report's info into another row of the database
-    public CreateReportRequest(String date, String time, String locationType, String zip,
+    public CreateReportRequest(String date, String locationType, String zip,
                                String address, String city, String borough, String latitude,
                                String longitude, Response.Listener<String> listener) {
         super(Method.POST, CREATEREPORT_REQUEST_URL, listener, null);
         params = new HashMap<>();
         params.put("date", date);
-        params.put("time", time);
         params.put("locationType", locationType);
         params.put("zip", zip);
         params.put("address", address);

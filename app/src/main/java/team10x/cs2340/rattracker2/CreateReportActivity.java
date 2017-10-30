@@ -33,7 +33,6 @@ public class CreateReportActivity extends AppCompatActivity {
 
         //the objects from the layout
         final EditText etDate = (EditText) findViewById(R.id.etDate);
-        final EditText etTime = (EditText) findViewById(R.id.etTime);
         final EditText etLocationType = (EditText) findViewById(R.id.etLocationType);
         final EditText etZipCode = (EditText) findViewById(R.id.etZipCode);
         final EditText etAddress = (EditText) findViewById(R.id.etAddress);
@@ -77,7 +76,6 @@ public class CreateReportActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 etDate.setText("");
-                etTime.setText("");
                 etLocationType.setText("");
                 etZipCode.setText("");
                 etAddress.setText("");
@@ -93,7 +91,6 @@ public class CreateReportActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // get the text the user entered in each field
                 final String date = etDate.getText().toString();
-                final String time = etTime.getText().toString();
                 final String locationType = etLocationType.getText().toString();
                 final String zip = etZipCode.getText().toString();
                 final String address = etAddress.getText().toString();
@@ -120,7 +117,7 @@ public class CreateReportActivity extends AppCompatActivity {
                     }
                 };
                 // create the request and add it to the queue
-                CreateReportRequest request = new CreateReportRequest(date, time, locationType, zip, address, city, borough, latitude, longitude, listener);
+                CreateReportRequest request = new CreateReportRequest(date, locationType, zip, address, city, borough, latitude, longitude, listener);
                 RequestQueue queue = Volley.newRequestQueue(CreateReportActivity.this);
                 queue.add(request);
             };
