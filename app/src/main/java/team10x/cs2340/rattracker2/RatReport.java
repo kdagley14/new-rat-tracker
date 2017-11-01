@@ -51,7 +51,15 @@ public class RatReport {
     }
 
     public String toMapString() {
-        return date + "   " + address;
+        return "Reference #: " + primaryId;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getAddress() {
+        return address;
     }
 
     public String toDetailString() {

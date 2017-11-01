@@ -99,7 +99,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         Intent initialIntent = getIntent();
         String start = initialIntent.getStringExtra("start");
         String end = initialIntent.getStringExtra("end");
-        
+
         if (start == null) {
             start = "2016-01-01";
         }
@@ -123,7 +123,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                                 x.getString("latitude"), x.getString("longitude")));
                     }
                     for (RatReport report: rats) {
-                        map.addMarker(new MarkerOptions().position(report.getLatLong()).title(report.toMapString()));
+                        map.addMarker(new MarkerOptions().position(report.getLatLong()).title(report.toMapString()).snippet("Date: " + report.getDate() + "    Address: " + report.getAddress()));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
