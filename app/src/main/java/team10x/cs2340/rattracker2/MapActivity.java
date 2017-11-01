@@ -9,7 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -77,16 +79,34 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         sMapFragment.getMapAsync(MapActivity.this);
         FragmentManager sFm = getSupportFragmentManager();
         sFm.beginTransaction().add(R.id.map, sMapFragment).commit();
+
+        final Button bSearch = (Button) findViewById(R.id.search_button);
+        bSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent searchIntent = new Intent(MapActivity.this, SearchDateRangeActivity.class);
+                MapActivity.this.startActivity(searchIntent);
+            }
+        });
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.map = googleMap;
-        LatLng newYork = new LatLng(40, -73);
-        map.addMarker(new MarkerOptions().position(newYork).title("HEY THERE"));
-        map.moveCamera(CameraUpdateFactory.newLatLng(newYork));
-        String start = "2016-01-01";
-        String end = "2016-01-03";
+
+        // if the date range was set, load the data from that date range
+        // else, load the data from the default date range
+        Intent initialIntent = getIntent();
+        String start = initialIntent.getStringExtra("start");
+        String end = initialIntent.getStringExtra("end");
+        
+        if (start == null) {
+            start = "2016-01-01";
+        }
+        if (end == null) {
+            end = "2016-01-03";
+        }
+
         //generate list from database
         final Response.Listener<String> listener = new Response.Listener<String>() {
 
@@ -96,7 +116,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                     // get the JSON object returned from the database
                     JSONArray jsonResponse = new JSONArray(response);
                     rats = new ArrayList<RatReport>();
-                    //turn innto ratreport objects
+                    //turn into ratreport objects
                     for (int i = 0; i < jsonResponse.length(); i++) {
                         JSONObject x = jsonResponse.getJSONObject(i);
                         rats.add(new RatReport(x.getString("primaryId"), x.getString("date"), x.getString("address"),
@@ -115,6 +135,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         MapRequest request = new MapRequest(start, end, listener);
         RequestQueue queue = Volley.newRequestQueue(MapActivity.this);
         queue.add(request);
+
+    }
+
+    public void setDateRange(String start, String end) {
 
     }
 
