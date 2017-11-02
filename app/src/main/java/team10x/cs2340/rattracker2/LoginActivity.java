@@ -32,53 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         bLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                // get the username(email) and password the user entered
-                final String username = etUsername.getText().toString();
-                final String password = etPassword.getText().toString();
-
-                Response.Listener<String> listener = new Response.Listener<String>() {
-
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-
-                            // get the JSON object returned from the database
-                            JSONObject jsonResponse = new JSONObject(response);
-                            boolean success = jsonResponse.getBoolean("success");
-
-                            // check if the login was successful
-                            if (success) {
-                                String name = jsonResponse.getString("name");
-                                String user_type = jsonResponse.getString("user_type");
-
-                                // switch to the home screen
-                                Intent homeIntent = new Intent(LoginActivity.this, HomeActivity.class);
-                                homeIntent.putExtra("name", name);
-                                homeIntent.putExtra("username", username);
-                                homeIntent.putExtra("user_type", user_type);
-                                LoginActivity.this.startActivity(homeIntent);
-
-                            } else {
-
-                                // alert the user that the login failed
-                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                builder.setMessage("Login Failed")
-                                        .setNegativeButton("Retry", null)
-                                        .create()
-                                        .show();
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                };
-
-                // create the login request and add it to the queue
-                LoginRequest request = new LoginRequest(username, password, listener);
-                RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
-                queue.add(request);
+                login(etUsername, etPassword);
             }
         });
 
@@ -92,6 +46,52 @@ public class LoginActivity extends AppCompatActivity {
                 LoginActivity.this.startActivity(cancelIntent);
             }
         });
+    }
+
+    public void login(EditText user, EditText pass) {
+        // get the username(email) and password the user entered
+        final String username = user.getText().toString();
+        final String password = pass.getText().toString();
+        Response.Listener<String> listener = new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                try {
+                    // get the JSON object returned from the database
+                    JSONObject jsonResponse = new JSONObject(response);
+                    boolean success = jsonResponse.getBoolean("success");
+
+                    // check if the login was successful
+                    if (success) {
+                        String name = jsonResponse.getString("name");
+                        String user_type = jsonResponse.getString("user_type");
+
+                        // switch to the home screen
+                        Intent homeIntent = new Intent(LoginActivity.this, HomeActivity.class);
+                        homeIntent.putExtra("name", name);
+                        homeIntent.putExtra("username", username);
+                        homeIntent.putExtra("user_type", user_type);
+                        LoginActivity.this.startActivity(homeIntent);
+
+                    } else {
+                        // alert the user that the login failed
+                        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                        builder.setMessage("Login Failed")
+                                .setNegativeButton("Retry", null)
+                                .create()
+                                .show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        // create the login request and add it to the queue
+        LoginRequest request = new LoginRequest(username, password, listener);
+        RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
+        queue.add(request);
     }
 
 }
