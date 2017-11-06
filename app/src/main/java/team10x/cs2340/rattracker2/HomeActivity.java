@@ -46,23 +46,7 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case(R.id.reports_list):
-                        Intent reportsListIntent = new Intent(HomeActivity.this, HomeActivity.class);
-                        startActivity(reportsListIntent);
-                        break;
-                    case(R.id.create_report):
-                        Intent createReportIntent = new Intent(HomeActivity.this, CreateReportActivity.class);
-                        startActivity(createReportIntent);
-                        break;
-                    case(R.id.view_map):
-                        Intent viewMapIntent = new Intent(HomeActivity.this, MapActivity.class);
-                        startActivity(viewMapIntent);
-                        break;
-                    case(R.id.logout):
-                        Intent logoutIntent = new Intent(HomeActivity.this, MainActivity.class);
-                        startActivity(logoutIntent);
-                }
+                NavigationDrawer.getActivityOptions(HomeActivity.this, menuItem);
                 return true;
             }
         });

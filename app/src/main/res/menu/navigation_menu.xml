@@ -11,8 +11,11 @@
 
     <item android:id="@+id/view_map"
         android:icon="@mipmap/ic_map_black_24dp"
-        android:title="View Rat Sightings Map"
-        />
+        android:title="View Rat Sightings Map"/>
+
+    <item android:id="@+id/view_graphs"
+        android:icon="@mipmap/ic_show_chart_black_24dp"
+        android:title="View Graphs"/>
 
     <item android:id="@+id/logout"
         android:icon="@mipmap/ic_exit_to_app_black_24dp"

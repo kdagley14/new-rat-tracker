@@ -55,23 +55,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case(R.id.reports_list):
-                        Intent reportsListIntent = new Intent(MapActivity.this, HomeActivity.class);
-                        startActivity(reportsListIntent);
-                        break;
-                    case(R.id.create_report):
-                        Intent createReportIntent = new Intent(MapActivity.this, CreateReportActivity.class);
-                        startActivity(createReportIntent);
-                        break;
-                    case(R.id.view_map):
-                        Intent viewMapIntent = new Intent(MapActivity.this, MapActivity.class);
-                        startActivity(viewMapIntent);
-                        break;
-                    case(R.id.logout):
-                        Intent logoutIntent = new Intent(MapActivity.this, MainActivity.class);
-                        startActivity(logoutIntent);
-                }
+                NavigationDrawer.getActivityOptions(MapActivity.this, menuItem);
                 return true;
             }
         });

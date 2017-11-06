@@ -50,7 +50,8 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".MapActivity" />
-        <activity android:name=".SearchDateRangeActivity"></activity>
+        <activity android:name=".SearchDateRangeActivity" />
+        <activity android:name=".GraphActivity"></activity>
     </application>
 
 </manifest>
