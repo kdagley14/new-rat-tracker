@@ -1,13 +1,8 @@
 package team10x.cs2340.rattracker2;
 
 import android.content.Intent;
-import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.ListView;
 
 /**
  * Created by kdagley on 11/1/17.
