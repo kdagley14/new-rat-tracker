@@ -8,10 +8,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
@@ -31,11 +38,13 @@ import java.util.GregorianCalendar;
 import java.util.concurrent.TimeUnit;
 
 
-public class GraphActivity extends AppCompatActivity {
+public class GraphActivity extends AppCompatActivity implements GeneralCallbacks {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
-    private ArrayList<RatReport> rats;
-
+    private ArrayList<BarEntry> barEntries = new ArrayList<>();
+    private ArrayList<String> dates = new ArrayList<>();
+    private int numEntries;
+    private BarChart barChart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +52,16 @@ public class GraphActivity extends AppCompatActivity {
         setContentView(R.layout.activity_graph);
 
         //layout objects
+        TextView etOne = (TextView) findViewById(R.id.one);
+        TextView etTwo = (TextView) findViewById(R.id.two);
+        TextView etThree = (TextView) findViewById(R.id.three);
+        TextView etFour = (TextView) findViewById(R.id.four);
+        TextView etFive = (TextView) findViewById(R.id.five);
+        TextView etSix = (TextView) findViewById(R.id.six);
+        TextView[] key = {etOne, etTwo, etThree, etFour, etFive, etSix};
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mToggle = new ActionBarDrawerToggle(GraphActivity.this, mDrawerLayout, R.string.open, R.string.closed);
-        GraphView graph = (GraphView) findViewById(R.id.graph);
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
@@ -64,16 +80,23 @@ public class GraphActivity extends AppCompatActivity {
         Intent initialIntent = getIntent();
         String start = initialIntent.getStringExtra("start");
         String end = initialIntent.getStringExtra("end");
+        barChart = (BarChart) findViewById(R.id.bargraph);
+        numEntries = 1;
 
         //generate list from database
-        final Response.Listener<String> listener = new Response.Listener<String>() {
-
+        Response.Listener<String> listener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     // get the JSON object returned from the database
                     JSONObject jsonResponse = new JSONObject(response);
                     String count = jsonResponse.getString("count");
+                    barEntries.add(new BarEntry(numEntries, (float) Integer.parseInt(count)));
+                    numEntries++;
+                    Log.d("FUCK UR BITCH: ", barEntries + "");
+                    BarDataSet barDataSet = new BarDataSet(barEntries, "Rat Sightings");
+                    BarData theData = new BarData(barDataSet);
+                    barChart.setData(theData);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -113,9 +136,15 @@ public class GraphActivity extends AppCompatActivity {
                 RequestQueue queue = Volley.newRequestQueue(GraphActivity.this);
                 queue.add(request);
 
+
+                // add dates to bar graph data
+                dates.add(start + " - " + end);
+                TextView temp = key[i];
+                temp.setText(temp.getText() + start + " - " + end);
+
                 // get the new start date
                 GregorianCalendar cal2 = new GregorianCalendar();
-                cal2.setTime(startDate);
+                cal2.setTime(endDate);
                 cal2.add(Calendar.DATE, 1);
                 startDate = cal2.getTime();
             }
@@ -124,15 +153,16 @@ public class GraphActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
-                new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3),
-                new DataPoint(3, 2),
-                new DataPoint(4, 6)
-        });
-        graph.addSeries(series);
 
+        Log.d("FUCKING HELL!!! ", barEntries + "");
+        barChart.setTouchEnabled(true);
+        barChart.setDragEnabled(true);
+        //barChart.setScaleEnabled(true);
+        XAxis xAxis = barChart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        //BarDataSet barDataSet = new BarDataSet(barEntries, "Dates");
+        //BarData theData = new BarData(barDataSet);
+        //barChart.setData(theData);
     }
 
     @Override
@@ -141,5 +171,10 @@ public class GraphActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void VolleyResponse(String data) {
+
     }
 }
