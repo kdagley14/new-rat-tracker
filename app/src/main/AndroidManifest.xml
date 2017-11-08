@@ -51,7 +51,8 @@
 
         <activity android:name=".MapActivity" />
         <activity android:name=".SearchDateRangeActivity" />
-        <activity android:name=".GraphActivity"></activity>
+        <activity android:name=".GraphActivity" />
+        <activity android:name=".GraphDateRangeActivity"></activity>
     </application>
 
 </manifest>

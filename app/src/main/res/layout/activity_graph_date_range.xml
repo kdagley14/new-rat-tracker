@@ -41,22 +41,12 @@
         app:layout_constraintTop_toBottomOf="@+id/tvSearchPopup" />
 
     <Button
-        android:id="@+id/cancel_button"
-        android:layout_width="119dp"
-        android:layout_height="47dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="11dp"
-        android:text="Cancel"
-        app:layout_constraintLeft_toRightOf="@+id/view_graph_button"
-        app:layout_constraintTop_toBottomOf="@+id/etEndDate" />
-
-    <Button
         android:id="@+id/view_graph_button"
-        android:layout_width="119dp"
+        android:layout_width="143dp"
         android:layout_height="47dp"
-        android:layout_marginLeft="67dp"
+        android:layout_marginLeft="121dp"
         android:layout_marginTop="11dp"
-        android:text="Search"
+        android:text="View Graph"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEndDate" />
 </android.support.constraint.ConstraintLayout>

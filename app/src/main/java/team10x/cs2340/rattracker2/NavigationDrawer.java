@@ -26,7 +26,7 @@ public class NavigationDrawer {
                 current.startActivity(viewMapIntent);
                 break;
             case (R.id.view_graphs):
-                Intent viewGraphsIntent = new Intent(current, GraphActivity.class);
+                Intent viewGraphsIntent = new Intent(current, GraphDateRangeActivity.class);
                 current.startActivity(viewGraphsIntent);
                 break;
             case (R.id.logout):
