@@ -6,6 +6,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.android.volley.RequestQueue;
@@ -28,6 +29,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.concurrent.TimeUnit;
+
 
 public class GraphActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
@@ -70,17 +72,9 @@ public class GraphActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 try {
                     // get the JSON object returned from the database
-                    JSONArray jsonResponse = new JSONArray(response);
-                    rats = new ArrayList<RatReport>();
-                    //turn into ratreport objects
-                    for (int i = 0; i < jsonResponse.length(); i++) {
-                        JSONObject x = jsonResponse.getJSONObject(i);
-                        rats.add(new RatReport(x.getString("primaryId"), x.getString("date"), x.getString("address"),
-                                x.getString("latitude"), x.getString("longitude")));
-                    }
-                    for (RatReport report: rats) {
+                    JSONObject jsonResponse = new JSONObject(response);
+                    String count = jsonResponse.getString("count");
 
-                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -129,7 +123,7 @@ public class GraphActivity extends AppCompatActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        
+
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
                 new DataPoint(0, 1),
                 new DataPoint(1, 5),

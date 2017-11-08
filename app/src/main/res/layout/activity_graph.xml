@@ -18,7 +18,8 @@
             android:layout_height="500dp"
             android:id="@+id/graph"
             tools:layout_editor_absoluteY="81dp"
-            tools:layout_editor_absoluteX="8dp" />
+            tools:layout_editor_absoluteX="8dp"
+            app:seriesType="bar"/>
 
     </android.support.constraint.ConstraintLayout>
 
