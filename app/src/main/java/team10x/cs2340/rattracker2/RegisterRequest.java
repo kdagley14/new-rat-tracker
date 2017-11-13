@@ -6,6 +6,11 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+* This class accesses the database containing registered 
+* users and adds the new users registration information
+* into a new row
+*/
 public class RegisterRequest extends StringRequest {
 
     private static final String REGISTER_REQUEST_URL = "http://rat-tracker.000webhostapp.com/Register.php";
