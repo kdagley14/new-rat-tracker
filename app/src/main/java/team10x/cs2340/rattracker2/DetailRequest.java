@@ -7,6 +7,10 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+* This class pulls the details from a specific
+* rat report entry
+*/
 public class DetailRequest extends StringRequest {
 
     private static final String DETAIL_REQUEST_URL = "http://rat-tracker.000webhostapp.com/Detail.php";
