@@ -7,6 +7,11 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+* This class takes the information the user
+* extends in the Login text fields, and uses it to 
+* confirm or deny correct login information
+*/
 public class LoginRequest extends StringRequest {
 
     private static final String LOGIN_REQUEST_URL = "http://rat-tracker.000webhostapp.com/Login.php";
