@@ -4,6 +4,9 @@ import com.google.android.gms.maps.model.LatLng;
 
 /**
  * Created by paige on 10/10/2017.
+ *
+ * This class creates detailed rat report using 
+ * date and location details
  */
 
 public class RatReport {
