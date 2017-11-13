@@ -23,8 +23,6 @@ import org.json.JSONObject;
  * This method will return a report based on users
  * provided data.  If not enough information is given
  * then will return an error message
- *
- * @return      rat report
  */
 public class CreateReportActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
