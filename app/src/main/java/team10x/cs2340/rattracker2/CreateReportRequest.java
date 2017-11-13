@@ -6,6 +6,11 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+* This class creates the structure that pulls the information 
+* from a rat report created by a user in order to add
+* the report and its details to the database.
+*/
 public class CreateReportRequest extends StringRequest {
 
     private static final String CREATEREPORT_REQUEST_URL = "http://rat-tracker.000webhostapp.com/CreateReport.php";
