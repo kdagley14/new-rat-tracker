@@ -7,6 +7,11 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+* This class confirms that the date range
+* the user submitted to filter the map has
+* valid credentials.
+*/
 public class MapRequest extends StringRequest {
 
     private static final String MAP_REQUEST_URL = "http://rat-tracker.000webhostapp.com/Map.php";
