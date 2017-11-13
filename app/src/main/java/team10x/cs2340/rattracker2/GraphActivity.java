@@ -37,7 +37,13 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.concurrent.TimeUnit;
 
-
+/*
+* This class creates all aspects and functionality
+* of the graph included in the application, 
+* including layout objects.  
+* Also takes the information from the database
+* and converts it into useable data for the graph.
+*/
 public class GraphActivity extends AppCompatActivity implements GeneralCallbacks {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
