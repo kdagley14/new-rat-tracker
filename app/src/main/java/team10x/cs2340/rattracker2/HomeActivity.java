@@ -21,6 +21,15 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+* This class defines all activities and capabilities
+* possible from the home screen.  This is the screen the user 
+* is taken to after a successful login.
+*
+* It displays a list of rat reports pulled from a seperate
+* database. Also allows users to access the navigation menu
+* and option to create a new rat report.
+*/
 public class HomeActivity extends AppCompatActivity {
     public List<RatReport> rats;
     private DrawerLayout mDrawerLayout;
