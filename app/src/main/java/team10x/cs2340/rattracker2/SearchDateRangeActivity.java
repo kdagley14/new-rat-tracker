@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
+/*
+* This class allows the user the ability
+* to search the rat sigtings between specified date ranges
+*/
 public class SearchDateRangeActivity extends AppCompatActivity {
 
     @Override
