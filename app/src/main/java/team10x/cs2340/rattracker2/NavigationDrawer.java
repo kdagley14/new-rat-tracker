@@ -6,6 +6,10 @@ import android.view.MenuItem;
 
 /**
  * Created by kdagley on 11/1/17.
+ *
+ * This class creates the navigation menu
+ * found in the top corner of the application
+ * along with each individual menu item
  */
 
 public class NavigationDrawer {
