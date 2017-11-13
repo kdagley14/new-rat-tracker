@@ -15,6 +15,11 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/*
+* This class creates the login activity, including
+* all text fields and buttons to allow the user to enter
+* their login information.
+*/
 public class LoginActivity extends AppCompatActivity {
 
     @Override
