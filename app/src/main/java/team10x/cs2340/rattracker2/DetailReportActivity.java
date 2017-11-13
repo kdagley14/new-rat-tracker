@@ -21,6 +21,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+* This class creates the page that results 
+* from clicking on a specific rat report, and allows 
+* the user to see the details of each respective sighting. 
+*/
 public class DetailReportActivity extends AppCompatActivity {
 
     @Override
