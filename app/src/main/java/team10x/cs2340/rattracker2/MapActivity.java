@@ -25,6 +25,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+/*
+* Creates map view containing rat sighting within
+* an area and a user defined date range
+*/
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
