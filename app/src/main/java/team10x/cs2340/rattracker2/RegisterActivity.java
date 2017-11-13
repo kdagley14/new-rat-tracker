@@ -18,6 +18,10 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/*
+* This class creates the activity within the application
+* that allows users to enter information during registration
+*/
 public class RegisterActivity extends AppCompatActivity {
 
     @Override
