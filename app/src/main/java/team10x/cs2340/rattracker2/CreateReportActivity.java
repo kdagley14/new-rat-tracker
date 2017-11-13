@@ -18,7 +18,14 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
+/**
+ * Creates rat report based on report details
+ * This method will return a report based on users
+ * provided data.  If not enough information is given
+ * then will return an error message
+ *
+ * @return      rat report
+ */
 public class CreateReportActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
