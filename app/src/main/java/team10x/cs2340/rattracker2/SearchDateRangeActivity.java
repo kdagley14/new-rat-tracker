@@ -6,12 +6,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-/*
+/**
 * This class allows the user the ability
 * to search the rat sigtings between specified date ranges
 */
 public class SearchDateRangeActivity extends AppCompatActivity {
 
+    /**
+    * When the user is viewing the map and has 
+    * the ability to manipulate the date range, this 
+    * method immediately creates all of the necessary
+    * objects that allow the user to edit.
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +29,10 @@ public class SearchDateRangeActivity extends AppCompatActivity {
         final Button bCancel = (Button) findViewById(R.id.cancel_button);
 
         bSearch.setOnClickListener(new View.OnClickListener() {
+            /**
+            * Method that brings click functionality to start and 
+            * end buttons
+            */
             @Override
             public void onClick(View v) {
                 String start = etStartDate.getText().toString();
@@ -36,6 +46,9 @@ public class SearchDateRangeActivity extends AppCompatActivity {
         });
 
         bCancel.setOnClickListener(new View.OnClickListener() {
+            /**
+            * Brings click functionality to cancel button within activity.
+            */
             @Override
             public void onClick(View v) {
                 Intent cancelIntent = new Intent(SearchDateRangeActivity.this, MapActivity.class);
