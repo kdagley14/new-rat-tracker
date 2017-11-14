@@ -41,7 +41,7 @@ public class CreateReportActivity extends AppCompatActivity {
         //the objects from the layout
         final EditText etDate = (EditText) findViewById(R.id.etDate);
         final EditText etLocationType = (EditText) findViewById(R.id.etLocationType);
-        final EditText etZipCode = (EditText) findViewById(R.id.etZipCode);
+        final EditText etZipCode =  findViewById(R.id.etZipCode);
         final EditText etAddress = (EditText) findViewById(R.id.etAddress);
         final EditText etCity = (EditText) findViewById(R.id.etCity);
         final EditText etBorough = (EditText) findViewById(R.id.etBorough);
@@ -65,23 +65,8 @@ public class CreateReportActivity extends AppCompatActivity {
             */
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case(R.id.reports_list):
-                        Intent reportsListIntent = new Intent(CreateReportActivity.this, HomeActivity.class);
-                        startActivity(reportsListIntent);
-                        break;
-                    case(R.id.create_report):
-                        Intent createReportIntent = new Intent(CreateReportActivity.this, CreateReportActivity.class);
-                        startActivity(createReportIntent);
-                        break;
-                    case(R.id.view_map):
-                        Intent viewMapIntent = new Intent(CreateReportActivity.this, MapActivity.class);
-                        startActivity(viewMapIntent);
-                        break;
-                    case(R.id.logout):
-                        Intent logoutIntent = new Intent(CreateReportActivity.this, MainActivity.class);
-                        startActivity(logoutIntent);
-                }
+                NavigationDrawer nav = new NavigationDrawer();
+                nav.getActivityOptions(CreateReportActivity.this, menuItem);
                 return true;
             }
         });

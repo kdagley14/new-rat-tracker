@@ -34,7 +34,8 @@ public class GraphDateRangeActivity extends AppCompatActivity {
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
-                NavigationDrawer.getActivityOptions(GraphDateRangeActivity.this, menuItem);
+                NavigationDrawer nav = new NavigationDrawer();
+                nav.getActivityOptions(GraphDateRangeActivity.this, menuItem);
                 return true;
             }
         });

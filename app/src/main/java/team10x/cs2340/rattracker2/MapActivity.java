@@ -67,7 +67,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             */
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
-                NavigationDrawer.getActivityOptions(MapActivity.this, menuItem);
+                NavigationDrawer nav = new NavigationDrawer();
+                nav.getActivityOptions(MapActivity.this, menuItem);
                 return true;
             }
         });

@@ -19,7 +19,7 @@ public class NavigationDrawer {
     * @param currActivity  current activity state of application
     * @param menuItem  new menu item object 
     */
-    public static void getActivityOptions(AppCompatActivity currActivity, MenuItem menuItem) {
+    public void getActivityOptions(AppCompatActivity currActivity, MenuItem menuItem) {
         final AppCompatActivity current = currActivity;
         switch (menuItem.getItemId()) {
             case (R.id.reports_list):

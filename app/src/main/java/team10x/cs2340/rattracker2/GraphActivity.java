@@ -83,7 +83,8 @@ public class GraphActivity extends AppCompatActivity {
             */
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
-                NavigationDrawer.getActivityOptions(GraphActivity.this, menuItem);
+                NavigationDrawer nav = new NavigationDrawer();
+                nav.getActivityOptions(GraphActivity.this, menuItem);
                 return true;
             }
         });
@@ -101,7 +102,8 @@ public class GraphActivity extends AppCompatActivity {
             * a JSON object if an ID corresponds with the entered String.
             * It then updates graph with new entry.
             *
-            * @param response  String that should correspond with an id
+            * @param response  String that should correspond with an id*
+            * @throws JSONException
             */
             @Override
             public void onResponse(String response) {

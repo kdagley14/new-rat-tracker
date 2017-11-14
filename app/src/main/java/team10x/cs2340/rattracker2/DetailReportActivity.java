@@ -56,7 +56,7 @@ public class DetailReportActivity extends AppCompatActivity {
             * turns it into a new RatReport object.
             *
             * @param response  id of object selected
-            * @throws e  JSONException if occurs  
+            * @throws JSONException if occurs
             */
             @Override
             public void onResponse(String response) {

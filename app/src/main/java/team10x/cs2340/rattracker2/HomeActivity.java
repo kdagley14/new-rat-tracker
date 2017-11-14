@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import com.android.volley.RequestQueue;
@@ -68,7 +67,8 @@ public class HomeActivity extends AppCompatActivity {
             */
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
-                NavigationDrawer.getActivityOptions(HomeActivity.this, menuItem);
+                NavigationDrawer nav = new NavigationDrawer();
+                nav.getActivityOptions(HomeActivity.this, menuItem);
                 return true;
             }
         });
@@ -82,7 +82,7 @@ public class HomeActivity extends AppCompatActivity {
             * into a new JSONArray object.
             *
             * @param response  String used to identify desired JSON object
-            * @throws e  JSONException
+            * @throws JSONException e
             */
             @Override
             public void onResponse(String response) {
