@@ -24,6 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /*
 * Creates map view containing rat sighting within
@@ -33,7 +34,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     private SupportMapFragment sMapFragment;
-    private ArrayList<RatReport> rats;
+    private List<RatReport> rats;
     private GoogleMap map;
 
     @Override

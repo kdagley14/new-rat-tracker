@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -84,7 +85,7 @@ public class HomeActivity extends AppCompatActivity {
                     // This is the array adapter, it takes the context of the activity as a
                     // first parameter, the type of list view as a second parameter and your
                     // array as a third parameter.
-                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                    ListAdapter arrayAdapter = new ArrayAdapter<String>(
                             HomeActivity.this,
                             android.R.layout.simple_list_item_1,
                             testArray );

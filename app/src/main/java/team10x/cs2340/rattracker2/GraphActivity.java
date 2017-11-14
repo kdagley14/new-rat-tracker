@@ -1,5 +1,6 @@
 package team10x.cs2340.rattracker2;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -33,8 +34,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /*
@@ -47,8 +50,8 @@ import java.util.concurrent.TimeUnit;
 public class GraphActivity extends AppCompatActivity implements GeneralCallbacks {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
-    private ArrayList<BarEntry> barEntries = new ArrayList<>();
-    private ArrayList<String> dates = new ArrayList<>();
+    private List<BarEntry> barEntries = new ArrayList<>();
+    private Collection<String> dates = new ArrayList<>();
     private int numEntries;
     private BarChart barChart;
 
@@ -111,7 +114,7 @@ public class GraphActivity extends AppCompatActivity implements GeneralCallbacks
         };
 
         // convert date strings into actual dates to be able to create graph intervals
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        @SuppressLint("SimpleDateFormat") DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         Date sDate, eDate;
         try {
             sDate = df.parse(start);
@@ -146,7 +149,8 @@ public class GraphActivity extends AppCompatActivity implements GeneralCallbacks
                 // add dates to bar graph data
                 dates.add(start + " - " + end);
                 TextView temp = key[i];
-                temp.setText(temp.getText() + start + " - " + end);
+                String tempString = temp.getText() + start + " - " + end;
+                temp.setText(tempString);
 
                 // get the new start date
                 GregorianCalendar cal2 = new GregorianCalendar();
