@@ -9,7 +9,7 @@ import java.util.Map;
 
 /*
 * This class pulls the details from a specific
-* rat report entry and puts it into a hashmap.
+* rat report entry and puts it into a HashMap.
 */
 public class DetailRequest extends StringRequest {
 
@@ -31,7 +31,7 @@ public class DetailRequest extends StringRequest {
     }
 
     /**
-    * This method returns parameter information from hashmap
+    * This method returns parameter information from HashMap
     *
     * @return params  map object containing parameter info
     */

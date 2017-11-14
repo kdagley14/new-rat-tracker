@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
@@ -20,12 +19,6 @@ import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
-
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -45,7 +38,7 @@ import java.util.concurrent.TimeUnit;
 * of the graph included in the application, 
 * including layout objects.  
 * Also takes the information from the database
-* and converts it into useable data for the graph.
+* and converts it into usable data for the graph.
 */
 public class GraphActivity extends AppCompatActivity implements GeneralCallbacks {
     private DrawerLayout mDrawerLayout;

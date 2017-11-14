@@ -100,7 +100,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                     // get the JSON object returned from the database
                     JSONArray jsonResponse = new JSONArray(response);
                     rats = new ArrayList<RatReport>();
-                    //turn into ratreport objects
+                    //turn into ratReport objects
                     for (int i = 0; i < jsonResponse.length(); i++) {
                         JSONObject x = jsonResponse.getJSONObject(i);
                         rats.add(new RatReport(x.getString("primaryId"), x.getString("date"), x.getString("address"),

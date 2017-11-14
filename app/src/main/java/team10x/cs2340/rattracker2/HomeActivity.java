@@ -27,7 +27,7 @@ import java.util.List;
 * possible from the home screen.  This is the screen the user 
 * is taken to after a successful login.
 *
-* It displays a list of rat reports pulled from a seperate
+* It displays a list of rat reports pulled from a separate
 * database. Also allows users to access the navigation menu
 * and option to create a new rat report.
 */
@@ -92,13 +92,13 @@ public class HomeActivity extends AppCompatActivity {
                     // get the JSON object returned from the database
                     JSONArray jsonResponse = new JSONArray(response);
                     rats = new ArrayList<RatReport>();
-                    //turn innto ratreport objects
+                    //turn into ratreport objects
                     for (int i = 0; i < jsonResponse.length(); i++) {
                         JSONObject x = jsonResponse.getJSONObject(i);
                         rats.add(new RatReport(x.getString("primaryId"), x.getString("date"), x.getString("zip"),
                                 x.getString("borough")));
                     }
-                    //create a list of the tostrings that just show the date, borough, & zip
+                    //create a list of the toStrings that just show the date, borough, & zip
                     List<String> testArray = new ArrayList<String>();
                     for (RatReport i: rats) {
                         testArray.add(i.toListString());
@@ -124,8 +124,8 @@ public class HomeActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(HomeActivity.this);
         queue.add(request);
 
-        //when you click an item, get the primary id of the corresponding ratreport & send to
-        //the detailpage activity so it can get the rest of the information from the database;
+        //when you click an item, get the primary id of the corresponding ratReport & send to
+        //the detailPage activity so it can get the rest of the information from the database;
         //goes to detail page
         lvReports.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             /**

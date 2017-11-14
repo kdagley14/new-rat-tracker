@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         // set action when cancel button is clicked
         bCancel.setOnClickListener(new View.OnClickListener() {
             /**
-            * Takes user back to main scrren if they click cancel
+            * Takes user back to main screen if they click cancel
             *
             * @param view  current app View
             */

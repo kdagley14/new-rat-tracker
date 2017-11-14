@@ -22,14 +22,14 @@ public class CreateReportRequest extends StringRequest {
     *
     * @param date  date of the rat report
     * @param locationType  apartment/school/home/etc
-    * @param zip  zipcode of sighting
+    * @param zip  zip code of sighting
     * @param address  address of sighting
     * @param city  city report was in 
     * @param borough  neighborhood name if relevant
     * @param latitude  latitude 
     * @param longitude  corresponding longitude
     * @param listener  listener that takes in user information
-    * @return params  returns info entered through parammeters
+    * @return params  returns info entered through parameters
     */
     public CreateReportRequest(String date, String locationType, String zip,
                                String address, String city, String borough, String latitude,

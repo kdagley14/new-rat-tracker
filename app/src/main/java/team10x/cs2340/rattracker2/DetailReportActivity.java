@@ -74,7 +74,7 @@ public class DetailReportActivity extends AppCompatActivity {
                             x.getString("locationType"), x.getString("zip"), x.getString("address"),
                             x.getString("city"), x.getString("borough"), x.getString("latitude"),
                             x.getString("longitude"));
-                    //set textview to show the tostring version that displays all fields
+                    //set TextView to show the toString version that displays all fields
                     tvDetails.setText(rat.toDetailString());
 
                 } catch (JSONException e) {
