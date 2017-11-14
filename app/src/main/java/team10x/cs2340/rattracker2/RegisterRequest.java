@@ -13,7 +13,8 @@ import java.util.Map;
 */
 class RegisterRequest extends StringRequest {
 
-    private static final String REGISTER_REQUEST_URL = "http://rat-tracker.000webhostapp.com/Register.php";
+    private static final String REGISTER_REQUEST_URL =
+            "http://rat-tracker.000webhostapp.com/Register.php";
     private final Map<String, String> params;
 
     /**
@@ -26,7 +27,7 @@ class RegisterRequest extends StringRequest {
     * @param user_type  type of user
     * @param listener  response listener object to read user's text entries
     */
-    public RegisterRequest(String name, String username, String password, String user_type, Response.Listener<String> listener) {
+    RegisterRequest(String name, String username, String password, String user_type, Response.Listener<String> listener) {
         super(Method.POST, REGISTER_REQUEST_URL, listener, null);
         params = new HashMap<>();
         params.put("name", name);

@@ -37,7 +37,8 @@ public class RegisterActivity extends AppCompatActivity {
         final Spinner sUserType = (Spinner) findViewById(R.id.user_type_spinner);
 
         // set the options for the spinner
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.user_array, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.user_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sUserType.setAdapter(adapter);
 
@@ -87,11 +88,13 @@ public class RegisterActivity extends AppCompatActivity {
                         // check if the login was successful
                         if (success) {
                             // switch to the login screen
-                            Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            Intent loginIntent = new Intent(RegisterActivity.this,
+                                    LoginActivity.class);
                             RegisterActivity.this.startActivity(loginIntent);
                         } else {
                             // alert the user that registration failed
-                            AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                            AlertDialog.Builder builder = new AlertDialog.Builder(
+                                    RegisterActivity.this);
                             builder.setMessage("Email already in use")
                                     .setNegativeButton("Retry", null)
                                     .create()
@@ -103,7 +106,8 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             };
             // create the register request and add it to the queue
-            RegisterRequest request = new RegisterRequest(name, username, password, user_type, listener);
+            RegisterRequest request = new RegisterRequest(name, username, password, user_type,
+                    listener);
             RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
             queue.add(request);
         }

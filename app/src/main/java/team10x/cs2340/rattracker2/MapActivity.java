@@ -50,7 +50,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         SupportMapFragment sMapFragment = SupportMapFragment.newInstance();
 
         DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mToggle = new ActionBarDrawerToggle(MapActivity.this, mDrawerLayout, R.string.open, R.string.closed);
+        mToggle = new ActionBarDrawerToggle(MapActivity.this, mDrawerLayout, R.string.open,
+                R.string.closed);
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
@@ -128,11 +129,14 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                     //turn into ratReport objects
                     for (int i = 0; i < jsonResponse.length(); i++) {
                         JSONObject x = jsonResponse.getJSONObject(i);
-                        rats.add(new RatReport(x.getString("primaryId"), x.getString("date"), x.getString("address"),
+                        rats.add(new RatReport(x.getString("primaryId"),
+                                x.getString("date"), x.getString("address"),
                                 x.getString("latitude"), x.getString("longitude")));
                     }
                     for (RatReport report: rats) {
-                        map.addMarker(new MarkerOptions().position(report.getLatLong()).title(toMapString(report)).snippet("Date: " + report.getDate() + "    Address: " + report.getAddress()));
+                        map.addMarker(new MarkerOptions().position(report.getLatLong())
+                                .title(toMapString(report)).snippet("Date: " + report.getDate()
+                                        + "    Address: " + report.getAddress()));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

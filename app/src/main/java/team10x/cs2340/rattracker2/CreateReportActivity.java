@@ -15,8 +15,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 /**
  * Creates rat report based on report details
  * This method will return a report based on users
@@ -36,7 +34,8 @@ public class CreateReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_report);
 
         DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mToggle = new ActionBarDrawerToggle(CreateReportActivity.this, mDrawerLayout, R.string.open, R.string.closed);
+        mToggle = new ActionBarDrawerToggle(CreateReportActivity.this, mDrawerLayout,
+                R.string.open, R.string.closed);
 
         //the objects from the layout
         final EditText etDate = (EditText) findViewById(R.id.etDate);
@@ -109,35 +108,25 @@ public class CreateReportActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             // get the JSON object returned from the database
-                            JSONObject jsonResponse = new JSONObject(response);
+                            //JSONObject jsonResponse = new JSONObject(response);
 
                             // switch to the home screen
-                            Intent homeIntent = new Intent(CreateReportActivity.this, HomeActivity.class);
+                            Intent homeIntent = new Intent(CreateReportActivity.this,
+                                    HomeActivity.class);
                             CreateReportActivity.this.startActivity(homeIntent);
 
-                        } catch (JSONException e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
                 };
                 // create the request and add it to the queue
-                CreateReportRequest request = new CreateReportRequest(date, locationType, zip, address, city, borough, latitude, longitude, listener);
+                CreateReportRequest request = new CreateReportRequest(date, locationType, zip,
+                        address, city, borough, latitude, longitude, listener);
                 RequestQueue queue = Volley.newRequestQueue(CreateReportActivity.this);
                 queue.add(request);
             }
         });
 
-    }
-
-    /**
-    * This method just confirms true or false
-    * if a menu item is selected.
-    */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(mToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }

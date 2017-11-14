@@ -23,19 +23,18 @@ class RatReport {
 
     /**
     * Method creates new rat report entry with given information
-    * 
+    *
     * @param primaryId  string defining rat reports ID
     * @param date  string defining date of rat report
     * @param zip  string defining zipcode of report entry
     * @param borough  string defining neighborhood of rat sigting
     */
-    public RatReport(String primaryId, String date, String zip, String borough) {
+    RatReport(String primaryId, String date, String zip, String borough) {
         this.primaryId = primaryId;
         this.date = date;
         this.zip = zip;
         this.borough = borough;
     }
-
     /**
     * Method creates new rat report entry with given information
     * 
@@ -45,7 +44,7 @@ class RatReport {
     * @param latitude  string defining global latitude of rat sighting
     * @param longitude  string defining corresponding global longitude of rat sighting
     */
-    public RatReport(String primaryId, String date, String address, String latitude, String longitude) {
+    RatReport(String primaryId, String date, String address, String latitude, String longitude) {
         this.primaryId = primaryId;
         this.date = date;
         this.address = address;
@@ -65,8 +64,8 @@ class RatReport {
     * @param borough  string defining the neighborhood the rat sighting occured in
     * @param latitude  string defining global latitude of rat sighting
     * @param longitude  string defining corresponding global longitude of rat sighting
-    */
-    public RatReport(String primaryId, String date, String locationType, String zip, String address,
+    **/
+    RatReport(String primaryId, String date, String locationType, String zip, String address,
                      String city, String borough, String latitude, String longitude) {
         this.primaryId = primaryId;
         this.date = date;
@@ -85,7 +84,7 @@ class RatReport {
     *
     * @return date + "       " + borough + ", " + zip
     */
-    public String toListString() {
+    String toListString() {
         return date + "       " + borough + ", " + zip;
     }
 
@@ -93,7 +92,7 @@ class RatReport {
     * This method returns the date of rat report
     * @return date  date of rat report
     */
-    public String getDate() {
+    String getDate() {
         return date;
     }
 
@@ -101,7 +100,7 @@ class RatReport {
     * This method returns the address of rat report
     * @return address  street address of rat report
     */
-    public String getAddress() {
+    String getAddress() {
         return address;
     }
 
@@ -109,7 +108,7 @@ class RatReport {
     * This method puts all of the report details into a string with
     * formatted spacing
     */
-    public CharSequence toDetailString() {
+    CharSequence toDetailString() {
         return "Date: \t\t" + date + "\nLocation Type: \t\t" + locationType + "\nZip Code: \t\t"
                 + zip + "\nAddress: \t\t" + address + "\nCity: \t\t" + city + "\nBorough: \t\t"
                 + borough + "\nLatitude: \t\t" + latitude + "\nLongitude: \t\t" + longitude
@@ -121,7 +120,7 @@ class RatReport {
     *
     * @return primaryId  primary id of rat report
     */
-    public String getPrimaryId() {
+    String getPrimaryId() {
         return primaryId;
     }
 
@@ -130,7 +129,7 @@ class RatReport {
     *
     * @return LatLng  latitude and longitude values in form of doubles
     */
-    public LatLng getLatLong() {
+    LatLng getLatLong() {
         return new LatLng(Double.parseDouble(this.latitude), Double.parseDouble(this.longitude));
     }
 }

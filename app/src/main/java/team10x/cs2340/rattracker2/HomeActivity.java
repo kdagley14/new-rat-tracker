@@ -48,7 +48,8 @@ public class HomeActivity extends AppCompatActivity {
 
         //layout objects
         DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mToggle = new ActionBarDrawerToggle(HomeActivity.this, mDrawerLayout, R.string.open, R.string.closed);
+        mToggle = new ActionBarDrawerToggle(HomeActivity.this, mDrawerLayout, R.string.open,
+                R.string.closed);
         final ListView lvReports = (ListView) findViewById(R.id.lvReports);
 
         mDrawerLayout.addDrawerListener(mToggle);
@@ -93,7 +94,8 @@ public class HomeActivity extends AppCompatActivity {
                     //turn into ratreport objects
                     for (int i = 0; i < jsonResponse.length(); i++) {
                         JSONObject x = jsonResponse.getJSONObject(i);
-                        rats.add(new RatReport(x.getString("primaryId"), x.getString("date"), x.getString("zip"),
+                        rats.add(new RatReport(x.getString("primaryId"),
+                                x.getString("date"), x.getString("zip"),
                                 x.getString("borough")));
                     }
                     //create a list of the toStrings that just show the date, borough, & zip

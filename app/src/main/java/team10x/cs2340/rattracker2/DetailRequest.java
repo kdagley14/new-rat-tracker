@@ -13,7 +13,8 @@ import java.util.Map;
 */
 class DetailRequest extends StringRequest {
 
-    private static final String DETAIL_REQUEST_URL = "http://rat-tracker.000webhostapp.com/Detail.php";
+    private static final String DETAIL_REQUEST_URL =
+            "http://rat-tracker.000webhostapp.com/Detail.php";
     private final Map<String, String> params;
 
     /**

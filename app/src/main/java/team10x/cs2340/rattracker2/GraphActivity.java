@@ -66,7 +66,8 @@ public class GraphActivity extends AppCompatActivity {
         TextView[] key = {etOne, etTwo, etThree, etFour, etFive, etSix};
 
         DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mToggle = new ActionBarDrawerToggle(GraphActivity.this, mDrawerLayout, R.string.open, R.string.closed);
+        mToggle = new ActionBarDrawerToggle(GraphActivity.this, mDrawerLayout, R.string.open,
+                R.string.closed);
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
@@ -185,20 +186,6 @@ public class GraphActivity extends AppCompatActivity {
         //BarDataSet barDataSet = new BarDataSet(barEntries, "Dates");
         //BarData theData = new BarData(barDataSet);
         //barChart.setData(theData);
-    }
-
-    /**
-    * Method confirming item is selected.
-    *
-    * @param item  MenuItem
-    * @return boolean  true if item matches with param item
-    */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(mToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
 }
