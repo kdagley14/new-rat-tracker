@@ -55,6 +55,10 @@ public class GraphActivity extends AppCompatActivity implements GeneralCallbacks
     private int numEntries;
     private BarChart barChart;
 
+    /**
+    * This method creates all layout objects when a user
+    * interacts with the graph activity.
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +83,12 @@ public class GraphActivity extends AppCompatActivity implements GeneralCallbacks
         NavigationView nv = (NavigationView)findViewById(R.id.navigation_view);
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
+            /**
+            * Boolean method that returns true if this menu item
+            * is confirmed as selected.
+            *
+            * @return boolean  true if it is confirmed
+            */
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 NavigationDrawer.getActivityOptions(GraphActivity.this, menuItem);
@@ -94,6 +104,14 @@ public class GraphActivity extends AppCompatActivity implements GeneralCallbacks
 
         //generate list from database
         Response.Listener<String> listener = new Response.Listener<String>() {
+            /**
+            * This method takes in a String and creates
+            * a JSON object if an ID corresponds with the entered String.
+            * It then updates graph with new entry.
+            *
+            * @param response  String that should correspond with an id
+            * @throws e  JSONException
+            */
             @Override
             public void onResponse(String response) {
                 try {
@@ -102,7 +120,7 @@ public class GraphActivity extends AppCompatActivity implements GeneralCallbacks
                     String count = jsonResponse.getString("count");
                     barEntries.add(new BarEntry(numEntries, (float) Integer.parseInt(count)));
                     numEntries++;
-                    Log.d("FUCK UR BITCH: ", barEntries + "");
+                    Log.d("TWO: ", barEntries + "");
                     BarDataSet barDataSet = new BarDataSet(barEntries, "Rat Sightings");
                     BarData theData = new BarData(barDataSet);
                     barChart.setData(theData);
@@ -164,7 +182,7 @@ public class GraphActivity extends AppCompatActivity implements GeneralCallbacks
         }
 
 
-        Log.d("FUCKING HELL!!! ", barEntries + "");
+        Log.d("One ", barEntries + "");
         barChart.setTouchEnabled(true);
         barChart.setDragEnabled(true);
         //barChart.setScaleEnabled(true);
@@ -175,6 +193,12 @@ public class GraphActivity extends AppCompatActivity implements GeneralCallbacks
         //barChart.setData(theData);
     }
 
+    /**
+    * Method confirming item is selected.
+    *
+    * @param item  MenuItem
+    * @return boolean  true if item matches with param item
+    */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(mToggle.onOptionsItemSelected(item)) {

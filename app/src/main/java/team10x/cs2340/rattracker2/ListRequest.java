@@ -16,7 +16,11 @@ public class ListRequest extends StringRequest {
 
     private static final String LIST_REQUEST_URL = "http://rat-tracker.000webhostapp.com/List.php";
 
-    // access the database and get the first 20 rat reports
+    /**
+    * Method accesses the database and gets the first 20 rat reports
+    *
+    * @param listener  response listener for strings
+    */
     public ListRequest(Response.Listener<String> listener) {
         super(Request.Method.POST, LIST_REQUEST_URL, listener, null);
     }
