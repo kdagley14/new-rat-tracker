@@ -13,7 +13,8 @@ import java.util.Map;
 */
 class CreateReportRequest extends StringRequest {
 
-    private static final String CREATEREPORT_REQUEST_URL = "http://rat-tracker.000webhostapp.com/CreateReport.php";
+    private static final String CREATEREPORT_REQUEST_URL =
+            "http://rat-tracker.000webhostapp.com/CreateReport.php";
     private final Map<String, String> params;
 
     /**

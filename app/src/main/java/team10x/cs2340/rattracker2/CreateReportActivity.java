@@ -36,7 +36,8 @@ public class CreateReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_report);
 
         DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mToggle = new ActionBarDrawerToggle(CreateReportActivity.this, mDrawerLayout, R.string.open, R.string.closed);
+        mToggle = new ActionBarDrawerToggle(CreateReportActivity.this, mDrawerLayout,
+                R.string.open, R.string.closed);
 
         //the objects from the layout
         final EditText etDate = (EditText) findViewById(R.id.etDate);
@@ -67,19 +68,23 @@ public class CreateReportActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case(R.id.reports_list):
-                        Intent reportsListIntent = new Intent(CreateReportActivity.this, HomeActivity.class);
+                        Intent reportsListIntent = new Intent(CreateReportActivity.this,
+                                HomeActivity.class);
                         startActivity(reportsListIntent);
                         break;
                     case(R.id.create_report):
-                        Intent createReportIntent = new Intent(CreateReportActivity.this, CreateReportActivity.class);
+                        Intent createReportIntent = new Intent(CreateReportActivity.this,
+                                CreateReportActivity.class);
                         startActivity(createReportIntent);
                         break;
                     case(R.id.view_map):
-                        Intent viewMapIntent = new Intent(CreateReportActivity.this, MapActivity.class);
+                        Intent viewMapIntent = new Intent(CreateReportActivity.this,
+                                MapActivity.class);
                         startActivity(viewMapIntent);
                         break;
                     case(R.id.logout):
-                        Intent logoutIntent = new Intent(CreateReportActivity.this, MainActivity.class);
+                        Intent logoutIntent = new Intent(CreateReportActivity.this,
+                                MainActivity.class);
                         startActivity(logoutIntent);
                 }
                 return true;
@@ -124,35 +129,25 @@ public class CreateReportActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             // get the JSON object returned from the database
-                            JSONObject jsonResponse = new JSONObject(response);
+                            //JSONObject jsonResponse = new JSONObject(response);
 
                             // switch to the home screen
-                            Intent homeIntent = new Intent(CreateReportActivity.this, HomeActivity.class);
+                            Intent homeIntent = new Intent(CreateReportActivity.this,
+                                    HomeActivity.class);
                             CreateReportActivity.this.startActivity(homeIntent);
 
-                        } catch (JSONException e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
                 };
                 // create the request and add it to the queue
-                CreateReportRequest request = new CreateReportRequest(date, locationType, zip, address, city, borough, latitude, longitude, listener);
+                CreateReportRequest request = new CreateReportRequest(date, locationType, zip,
+                        address, city, borough, latitude, longitude, listener);
                 RequestQueue queue = Volley.newRequestQueue(CreateReportActivity.this);
                 queue.add(request);
             }
         });
 
-    }
-
-    /**
-    * This method just confirms true or false
-    * if a menu item is selected.
-    */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(mToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }

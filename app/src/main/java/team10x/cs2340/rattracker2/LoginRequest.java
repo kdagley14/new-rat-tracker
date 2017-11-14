@@ -14,7 +14,8 @@ import java.util.Map;
 */
 class LoginRequest extends StringRequest {
 
-    private static final String LOGIN_REQUEST_URL = "http://rat-tracker.000webhostapp.com/Login.php";
+    private static final String LOGIN_REQUEST_URL =
+            "http://rat-tracker.000webhostapp.com/Login.php";
     private final Map<String, String> params;
 
     /**

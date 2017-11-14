@@ -9,7 +9,8 @@ import java.util.Map;
 
 class GraphRequest extends StringRequest {
 
-    private static final String GRAPH_REQUEST_URL = "http://rat-tracker.000webhostapp.com/Graph.php";
+    private static final String GRAPH_REQUEST_URL =
+            "http://rat-tracker.000webhostapp.com/Graph.php";
     private final Map<String, String> params;
 
     // access the database and check to see if the credentials are in the database

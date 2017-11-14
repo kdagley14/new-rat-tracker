@@ -28,7 +28,8 @@ class RatReport {
         this.borough = borough;
     }
 
-    public RatReport(String primaryId, String date, String address, String latitude, String longitude) {
+    public RatReport(String primaryId, String date, String address, String latitude,
+                     String longitude) {
         this.primaryId = primaryId;
         this.date = date;
         this.address = address;

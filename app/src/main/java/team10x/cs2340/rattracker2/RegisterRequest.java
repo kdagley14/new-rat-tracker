@@ -13,11 +13,13 @@ import java.util.Map;
 */
 class RegisterRequest extends StringRequest {
 
-    private static final String REGISTER_REQUEST_URL = "http://rat-tracker.000webhostapp.com/Register.php";
+    private static final String REGISTER_REQUEST_URL =
+            "http://rat-tracker.000webhostapp.com/Register.php";
     private final Map<String, String> params;
 
     // access the database and add all of the user's info into another row of the database
-    public RegisterRequest(String name, String username, String password, String user_type, Response.Listener<String> listener) {
+    public RegisterRequest(String name, String username, String password, String user_type,
+                           Response.Listener<String> listener) {
         super(Method.POST, REGISTER_REQUEST_URL, listener, null);
         params = new HashMap<>();
         params.put("name", name);

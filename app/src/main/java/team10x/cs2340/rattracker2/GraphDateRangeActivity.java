@@ -24,7 +24,8 @@ public class GraphDateRangeActivity extends AppCompatActivity {
         final Button bViewGraph = (Button) findViewById(R.id.view_graph_button);
 
         DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mToggle = new ActionBarDrawerToggle(GraphDateRangeActivity.this, mDrawerLayout, R.string.open, R.string.closed);
+        mToggle = new ActionBarDrawerToggle(GraphDateRangeActivity.this, mDrawerLayout,
+                R.string.open, R.string.closed);
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
@@ -45,7 +46,8 @@ public class GraphDateRangeActivity extends AppCompatActivity {
                 String start = etStartDate.getText().toString();
                 String end = etEndDate.getText().toString();
 
-                Intent viewGraphIntent = new Intent(GraphDateRangeActivity.this, GraphActivity.class);
+                Intent viewGraphIntent = new Intent(GraphDateRangeActivity.this,
+                        GraphActivity.class);
                 viewGraphIntent.putExtra("start", start);
                 viewGraphIntent.putExtra("end", end);
                 GraphDateRangeActivity.this.startActivity(viewGraphIntent);
