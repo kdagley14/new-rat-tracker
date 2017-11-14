@@ -20,7 +20,8 @@
             android:text="Search for Rat Sightings in a Date Range:"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="30dp" />
 
         <EditText
             android:id="@+id/etEndDate"
@@ -32,7 +33,8 @@
             android:hint="End Date (yyyy-mm-dd)"
             android:inputType="date"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etStartDate" />
+            app:layout_constraintTop_toBottomOf="@+id/etStartDate"
+            android:layout_marginStart="77dp" />
 
         <EditText
             android:id="@+id/etStartDate"
@@ -44,7 +46,8 @@
             android:hint="Start Date (yyyy-mm-dd)"
             android:inputType="date"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvSearchPopup" />
+            app:layout_constraintTop_toBottomOf="@+id/tvSearchPopup"
+            android:layout_marginStart="77dp" />
 
         <Button
             android:id="@+id/view_graph_button"
@@ -54,7 +57,8 @@
             android:layout_marginTop="11dp"
             android:text="View Graph"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etEndDate" />
+            app:layout_constraintTop_toBottomOf="@+id/etEndDate"
+            android:layout_marginStart="121dp" />
     </android.support.constraint.ConstraintLayout>
 
     <android.support.design.widget.NavigationView

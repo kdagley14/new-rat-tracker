@@ -22,7 +22,8 @@
             android:text="Create a Rat Report"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="88dp" />
 
         <EditText
             android:id="@+id/etDate"
@@ -34,7 +35,8 @@
             android:hint="Date (yyyy-mm-dd)"
             android:inputType="date"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvHeading" />
+            app:layout_constraintTop_toBottomOf="@+id/tvHeading"
+            android:layout_marginStart="85dp" />
 
         <EditText
             android:id="@+id/etLocationType"
@@ -46,7 +48,8 @@
             android:layout_marginLeft="85dp"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/etDate" />
+            app:layout_constraintTop_toBottomOf="@+id/etDate"
+            android:layout_marginStart="85dp" />
 
         <EditText
             android:id="@+id/etZipCode"
@@ -58,7 +61,8 @@
             android:layout_marginLeft="85dp"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/etLocationType" />
+            app:layout_constraintTop_toBottomOf="@+id/etLocationType"
+            android:layout_marginStart="85dp" />
 
         <EditText
             android:id="@+id/etAddress"
@@ -70,7 +74,8 @@
             android:layout_marginLeft="85dp"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/etZipCode" />
+            app:layout_constraintTop_toBottomOf="@+id/etZipCode"
+            android:layout_marginStart="85dp" />
 
         <EditText
             android:id="@+id/etCity"
@@ -82,7 +87,8 @@
             android:layout_marginLeft="85dp"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/etAddress" />
+            app:layout_constraintTop_toBottomOf="@+id/etAddress"
+            android:layout_marginStart="85dp" />
 
         <EditText
             android:id="@+id/etBorough"
@@ -94,7 +100,8 @@
             android:layout_marginLeft="85dp"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/etCity" />
+            app:layout_constraintTop_toBottomOf="@+id/etCity"
+            android:layout_marginStart="85dp" />
 
         <EditText
             android:id="@+id/etLatitude"
@@ -106,7 +113,8 @@
             android:layout_marginLeft="85dp"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/etBorough" />
+            app:layout_constraintTop_toBottomOf="@+id/etBorough"
+            android:layout_marginStart="85dp" />
 
         <EditText
             android:id="@+id/etLongitude"
@@ -118,7 +126,8 @@
             android:hint="Longitude"
             android:inputType="numberDecimal"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etLatitude" />
+            app:layout_constraintTop_toBottomOf="@+id/etLatitude"
+            android:layout_marginStart="85dp" />
 
         <Button
             android:id="@+id/clear_button"
@@ -128,7 +137,8 @@
             android:layout_marginLeft="17dp"
             android:text="Clear"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/create_button" />
+            app:layout_constraintLeft_toRightOf="@+id/create_button"
+            android:layout_marginStart="17dp" />
 
         <Button
             android:id="@+id/create_button"
@@ -138,7 +148,8 @@
             android:layout_marginLeft="66dp"
             android:text="Create"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="66dp" />
 
     </android.support.constraint.ConstraintLayout>
 
