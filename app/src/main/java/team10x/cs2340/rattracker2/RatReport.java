@@ -9,7 +9,7 @@ import com.google.android.gms.maps.model.LatLng;
  * date and location details
  */
 
-public class RatReport {
+class RatReport {
 
     private String primaryId = "";
     private String date = "";
@@ -51,10 +51,6 @@ public class RatReport {
 
     public String toListString() {
         return date + "       " + borough + ", " + zip;
-    }
-
-    public String toMapString() {
-        return "Reference #: " + primaryId;
     }
 
     public String getDate() {

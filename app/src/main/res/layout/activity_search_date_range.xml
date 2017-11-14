@@ -15,7 +15,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="30dp" />
+        android:layout_marginStart="30dp"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:id="@+id/etEndDate"
@@ -28,7 +29,8 @@
         android:inputType="date"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etStartDate"
-        android:layout_marginStart="77dp" />
+        android:layout_marginStart="77dp"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:id="@+id/etStartDate"
@@ -41,7 +43,8 @@
         android:inputType="date"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSearchPopup"
-        android:layout_marginStart="77dp" />
+        android:layout_marginStart="77dp"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/cancel_button"
@@ -52,7 +55,8 @@
         android:text="Cancel"
         app:layout_constraintLeft_toRightOf="@+id/view_graph_button"
         app:layout_constraintTop_toBottomOf="@+id/etEndDate"
-        android:layout_marginStart="12dp" />
+        android:layout_marginStart="12dp"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/view_graph_button"
@@ -63,5 +67,6 @@
         android:text="Search"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEndDate"
-        android:layout_marginStart="67dp" />
+        android:layout_marginStart="67dp"
+        tools:ignore="HardcodedText" />
 </android.support.constraint.ConstraintLayout>

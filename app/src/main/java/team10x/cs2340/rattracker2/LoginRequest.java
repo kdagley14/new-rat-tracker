@@ -12,10 +12,10 @@ import java.util.Map;
 * extends in the Login text fields, and uses it to 
 * confirm or deny correct login information
 */
-public class LoginRequest extends StringRequest {
+class LoginRequest extends StringRequest {
 
     private static final String LOGIN_REQUEST_URL = "http://rat-tracker.000webhostapp.com/Login.php";
-    private Map<String, String> params;
+    private final Map<String, String> params;
 
     /**
     * Method creates functionality for user login function

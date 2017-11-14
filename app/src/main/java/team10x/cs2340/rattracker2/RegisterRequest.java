@@ -11,10 +11,10 @@ import java.util.Map;
 * users and adds the new users registration information
 * into a new row
 */
-public class RegisterRequest extends StringRequest {
+class RegisterRequest extends StringRequest {
 
     private static final String REGISTER_REQUEST_URL = "http://rat-tracker.000webhostapp.com/Register.php";
-    private Map<String, String> params;
+    private final Map<String, String> params;
 
     // access the database and add all of the user's info into another row of the database
     public RegisterRequest(String name, String username, String password, String user_type, Response.Listener<String> listener) {

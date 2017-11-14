@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/reports_list"
         android:icon="@mipmap/ic_list_black_24dp"
-        android:title="List of Rat Reports"/>
+        android:title="List of Rat Reports"
+        tools:ignore="HardcodedText" />
 
     <item android:id="@+id/create_report"
         android:icon="@mipmap/ic_add_black_24dp"
-        android:title="Add New Rat Report"/>
+        android:title="Add New Rat Report"
+        tools:ignore="HardcodedText" />
 
     <item android:id="@+id/view_map"
         android:icon="@mipmap/ic_map_black_24dp"
-        android:title="View Rat Sightings Map"/>
+        android:title="View Rat Sightings Map"
+        tools:ignore="HardcodedText" />
 
     <item android:id="@+id/view_graphs"
         android:icon="@mipmap/ic_show_chart_black_24dp"
-        android:title="View Graph"/>
+        android:title="View Graph"
+        tools:ignore="HardcodedText" />
 
     <item android:id="@+id/logout"
         android:icon="@mipmap/ic_exit_to_app_black_24dp"
-        android:title="Log Out"/>
+        android:title="Log Out"
+        tools:ignore="HardcodedText" />
 
 </menu>

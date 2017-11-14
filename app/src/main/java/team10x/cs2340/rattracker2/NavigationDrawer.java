@@ -12,30 +12,29 @@ import android.view.MenuItem;
  * along with each individual menu item
  */
 
-public class NavigationDrawer {
+class NavigationDrawer {
 
     public static void getActivityOptions(AppCompatActivity currActivity, MenuItem menuItem) {
-        final AppCompatActivity current = currActivity;
         switch (menuItem.getItemId()) {
             case (R.id.reports_list):
-                Intent reportsListIntent = new Intent(current, HomeActivity.class);
-                current.startActivity(reportsListIntent);
+                Intent reportsListIntent = new Intent(currActivity, HomeActivity.class);
+                currActivity.startActivity(reportsListIntent);
                 break;
             case (R.id.create_report):
-                Intent createReportIntent = new Intent(current, CreateReportActivity.class);
-                current.startActivity(createReportIntent);
+                Intent createReportIntent = new Intent(currActivity, CreateReportActivity.class);
+                currActivity.startActivity(createReportIntent);
                 break;
             case (R.id.view_map):
-                Intent viewMapIntent = new Intent(current, MapActivity.class);
-                current.startActivity(viewMapIntent);
+                Intent viewMapIntent = new Intent(currActivity, MapActivity.class);
+                currActivity.startActivity(viewMapIntent);
                 break;
             case (R.id.view_graphs):
-                Intent viewGraphsIntent = new Intent(current, GraphDateRangeActivity.class);
-                current.startActivity(viewGraphsIntent);
+                Intent viewGraphsIntent = new Intent(currActivity, GraphDateRangeActivity.class);
+                currActivity.startActivity(viewGraphsIntent);
                 break;
             case (R.id.logout):
-                Intent logoutIntent = new Intent(current, MainActivity.class);
-                current.startActivity(logoutIntent);
+                Intent logoutIntent = new Intent(currActivity, MainActivity.class);
+                currActivity.startActivity(logoutIntent);
         }
     }
 }

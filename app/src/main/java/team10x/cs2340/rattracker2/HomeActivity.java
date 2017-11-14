@@ -32,8 +32,7 @@ import java.util.List;
 * and option to create a new rat report.
 */
 public class HomeActivity extends AppCompatActivity {
-    public List<RatReport> rats;
-    private DrawerLayout mDrawerLayout;
+    private List<RatReport> rats;
     private ActionBarDrawerToggle mToggle;
 
     /**
@@ -49,10 +48,9 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         //layout objects
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mToggle = new ActionBarDrawerToggle(HomeActivity.this, mDrawerLayout, R.string.open, R.string.closed);
         final ListView lvReports = (ListView) findViewById(R.id.lvReports);
-        final Button bLogout = (Button) findViewById(R.id.logout_button);
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();

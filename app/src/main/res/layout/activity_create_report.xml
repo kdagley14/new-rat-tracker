@@ -23,7 +23,8 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="88dp" />
+            android:layout_marginStart="88dp"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/etDate"
@@ -36,7 +37,8 @@
             android:inputType="date"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvHeading"
-            android:layout_marginStart="85dp" />
+            android:layout_marginStart="85dp"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/etLocationType"
@@ -49,7 +51,8 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="0dp"
             app:layout_constraintTop_toBottomOf="@+id/etDate"
-            android:layout_marginStart="85dp" />
+            android:layout_marginStart="85dp"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/etZipCode"
@@ -62,7 +65,8 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="0dp"
             app:layout_constraintTop_toBottomOf="@+id/etLocationType"
-            android:layout_marginStart="85dp" />
+            android:layout_marginStart="85dp"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/etAddress"
@@ -75,7 +79,8 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="0dp"
             app:layout_constraintTop_toBottomOf="@+id/etZipCode"
-            android:layout_marginStart="85dp" />
+            android:layout_marginStart="85dp"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/etCity"
@@ -88,7 +93,8 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="0dp"
             app:layout_constraintTop_toBottomOf="@+id/etAddress"
-            android:layout_marginStart="85dp" />
+            android:layout_marginStart="85dp"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/etBorough"
@@ -101,7 +107,8 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="0dp"
             app:layout_constraintTop_toBottomOf="@+id/etCity"
-            android:layout_marginStart="85dp" />
+            android:layout_marginStart="85dp"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/etLatitude"
@@ -114,7 +121,8 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="0dp"
             app:layout_constraintTop_toBottomOf="@+id/etBorough"
-            android:layout_marginStart="85dp" />
+            android:layout_marginStart="85dp"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/etLongitude"
@@ -127,7 +135,8 @@
             android:inputType="numberDecimal"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etLatitude"
-            android:layout_marginStart="85dp" />
+            android:layout_marginStart="85dp"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/clear_button"
@@ -138,7 +147,8 @@
             android:text="Clear"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/create_button"
-            android:layout_marginStart="17dp" />
+            android:layout_marginStart="17dp"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/create_button"
@@ -149,7 +159,8 @@
             android:text="Create"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginStart="66dp" />
+            android:layout_marginStart="66dp"
+            tools:ignore="HardcodedText" />
 
     </android.support.constraint.ConstraintLayout>
 

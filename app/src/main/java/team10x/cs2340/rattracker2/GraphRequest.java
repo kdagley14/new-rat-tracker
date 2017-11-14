@@ -7,10 +7,10 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GraphRequest extends StringRequest {
+class GraphRequest extends StringRequest {
 
     private static final String GRAPH_REQUEST_URL = "http://rat-tracker.000webhostapp.com/Graph.php";
-    private Map<String, String> params;
+    private final Map<String, String> params;
 
     // access the database and check to see if the credentials are in the database
     public GraphRequest(String start, String end, Response.Listener<String> listener) {

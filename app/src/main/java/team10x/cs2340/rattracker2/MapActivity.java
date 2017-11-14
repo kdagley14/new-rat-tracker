@@ -31,9 +31,7 @@ import java.util.List;
 * an area and a user defined date range
 */
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
-    private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
-    private SupportMapFragment sMapFragment;
     private List<RatReport> rats;
     private GoogleMap map;
 
@@ -49,9 +47,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        sMapFragment = SupportMapFragment.newInstance();
+        SupportMapFragment sMapFragment = SupportMapFragment.newInstance();
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mToggle = new ActionBarDrawerToggle(MapActivity.this, mDrawerLayout, R.string.open, R.string.closed);
 
         mDrawerLayout.addDrawerListener(mToggle);
@@ -99,6 +97,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     *
     * @param googleMap  Google map object
     */
+    @SuppressWarnings("FeatureEnvy")
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.map = googleMap;
@@ -132,7 +131,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                                 x.getString("latitude"), x.getString("longitude")));
                     }
                     for (RatReport report: rats) {
-                        map.addMarker(new MarkerOptions().position(report.getLatLong()).title(report.toMapString()).snippet("Date: " + report.getDate() + "    Address: " + report.getAddress()));
+                        map.addMarker(new MarkerOptions().position(report.getLatLong()).title(toMapString(report)).snippet("Date: " + report.getDate() + "    Address: " + report.getAddress()));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -156,5 +155,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private static String toMapString(RatReport report) {
+        return "Reference #: " + report.getPrimaryId();
     }
 }

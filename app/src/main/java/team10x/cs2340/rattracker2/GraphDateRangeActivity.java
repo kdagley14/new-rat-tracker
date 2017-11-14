@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class GraphDateRangeActivity extends AppCompatActivity {
-    private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
 
     @Override
@@ -24,7 +23,7 @@ public class GraphDateRangeActivity extends AppCompatActivity {
         final EditText etEndDate = (EditText) findViewById(R.id.etEndDate);
         final Button bViewGraph = (Button) findViewById(R.id.view_graph_button);
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mToggle = new ActionBarDrawerToggle(GraphDateRangeActivity.this, mDrawerLayout, R.string.open, R.string.closed);
 
         mDrawerLayout.addDrawerListener(mToggle);

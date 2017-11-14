@@ -12,10 +12,10 @@ import java.util.Map;
 * the user submitted to filter the map has
 * valid credentials.
 */
-public class MapRequest extends StringRequest {
+class MapRequest extends StringRequest {
 
     private static final String MAP_REQUEST_URL = "http://rat-tracker.000webhostapp.com/Map.php";
-    private Map<String, String> params;
+    private final Map<String, String> params;
 
     /**
     * Method accesses the database and check to see

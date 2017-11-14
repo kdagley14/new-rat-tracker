@@ -11,10 +11,10 @@ import java.util.Map;
 * This class pulls the details from a specific
 * rat report entry and puts it into a HashMap.
 */
-public class DetailRequest extends StringRequest {
+class DetailRequest extends StringRequest {
 
     private static final String DETAIL_REQUEST_URL = "http://rat-tracker.000webhostapp.com/Detail.php";
-    private Map<String, String> params;
+    private final Map<String, String> params;
 
     /**
     * Accesses the database and sends the primary key to get the rest of the data

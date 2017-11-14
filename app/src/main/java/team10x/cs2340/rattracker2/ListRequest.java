@@ -9,7 +9,7 @@ import com.android.volley.toolbox.StringRequest;
 * the database in order to allow them to be 
 * displayed on the home screen.
 */
-public class ListRequest extends StringRequest {
+class ListRequest extends StringRequest {
 
     private static final String LIST_REQUEST_URL = "http://rat-tracker.000webhostapp.com/List.php";
 

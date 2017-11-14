@@ -40,11 +40,10 @@ import java.util.concurrent.TimeUnit;
 * Also takes the information from the database
 * and converts it into usable data for the graph.
 */
-public class GraphActivity extends AppCompatActivity implements GeneralCallbacks {
-    private DrawerLayout mDrawerLayout;
+public class GraphActivity extends AppCompatActivity {
     private ActionBarDrawerToggle mToggle;
-    private List<BarEntry> barEntries = new ArrayList<>();
-    private Collection<String> dates = new ArrayList<>();
+    private final List<BarEntry> barEntries = new ArrayList<>();
+    private final Collection<String> dates = new ArrayList<>();
     private int numEntries;
     private BarChart barChart;
 
@@ -66,7 +65,7 @@ public class GraphActivity extends AppCompatActivity implements GeneralCallbacks
         TextView etSix = (TextView) findViewById(R.id.six);
         TextView[] key = {etOne, etTwo, etThree, etFour, etFive, etSix};
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mToggle = new ActionBarDrawerToggle(GraphActivity.this, mDrawerLayout, R.string.open, R.string.closed);
 
         mDrawerLayout.addDrawerListener(mToggle);
@@ -103,7 +102,6 @@ public class GraphActivity extends AppCompatActivity implements GeneralCallbacks
             * It then updates graph with new entry.
             *
             * @param response  String that should correspond with an id
-            * @throws e  JSONException
             */
             @Override
             public void onResponse(String response) {
@@ -126,7 +124,8 @@ public class GraphActivity extends AppCompatActivity implements GeneralCallbacks
 
         // convert date strings into actual dates to be able to create graph intervals
         @SuppressLint("SimpleDateFormat") DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        Date sDate, eDate;
+        Date sDate;
+        Date eDate;
         try {
             sDate = df.parse(start);
             eDate = df.parse(end);
@@ -200,8 +199,4 @@ public class GraphActivity extends AppCompatActivity implements GeneralCallbacks
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void VolleyResponse(String data) {
-
-    }
 }

@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
     * @param user  field where user should enter registered email
     * @param pass  field in which user should enter password corresponding with email entered
     */
-    public void login(EditText user, EditText pass) {
+    private void login(EditText user, EditText pass) {
         // get the username(email) and password the user entered
         final String username = user.getText().toString();
         final String password = pass.getText().toString();

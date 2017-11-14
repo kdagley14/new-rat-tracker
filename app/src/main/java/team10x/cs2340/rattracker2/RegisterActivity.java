@@ -68,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void register (String name, String username, String password, String user_type) {
-        if (name.equals("") || username.equals("") || password.equals("")) {
+        if ("".equals(name) || "".equals(username) || "".equals(password)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
             builder.setMessage("No field may be null")
                     .setNegativeButton("Retry", null)

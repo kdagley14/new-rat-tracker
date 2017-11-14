@@ -24,7 +24,6 @@ import org.json.JSONObject;
  * then will return an error message
  */
 public class CreateReportActivity extends AppCompatActivity {
-    private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
 
     /**
@@ -36,7 +35,7 @@ public class CreateReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_report);
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mToggle = new ActionBarDrawerToggle(CreateReportActivity.this, mDrawerLayout, R.string.open, R.string.closed);
 
         //the objects from the layout
@@ -62,7 +61,7 @@ public class CreateReportActivity extends AppCompatActivity {
             * menu item that a user selects.
             *
             * @return true or activity begins
-            * @param  menu item selected by user
+            * @param  menuItem item selected by user
             */
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
@@ -140,7 +139,7 @@ public class CreateReportActivity extends AppCompatActivity {
                 CreateReportRequest request = new CreateReportRequest(date, locationType, zip, address, city, borough, latitude, longitude, listener);
                 RequestQueue queue = Volley.newRequestQueue(CreateReportActivity.this);
                 queue.add(request);
-            };
+            }
         });
 
     }

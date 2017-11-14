@@ -11,10 +11,10 @@ import java.util.Map;
 * from a rat report created by a user in order to add
 * the report and its details to the database.
 */
-public class CreateReportRequest extends StringRequest {
+class CreateReportRequest extends StringRequest {
 
     private static final String CREATEREPORT_REQUEST_URL = "http://rat-tracker.000webhostapp.com/CreateReport.php";
-    private Map<String, String> params;
+    private final Map<String, String> params;
 
     /**
     * This method accesses the database and adds
