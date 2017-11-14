@@ -28,6 +28,10 @@ import java.util.List;
 */
 public class DetailReportActivity extends AppCompatActivity {
 
+    /**
+    * Creates all necessary layout objects for a user to
+    * interact with the detailed report.
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +41,10 @@ public class DetailReportActivity extends AppCompatActivity {
         final Button bBack = (Button) findViewById(R.id.back_button);
         final TextView tvDetails = (TextView) findViewById(R.id.tvReportDetails);
 
-        //if user hits back, go back to homepage
         bBack.setOnClickListener(new View.OnClickListener() {
+            /**
+            * If user hits back, app goes back to homepage
+            */
             @Override
             public void onClick(View v) {
                 Intent backIntent = new Intent(DetailReportActivity.this, HomeActivity.class);
@@ -52,12 +58,18 @@ public class DetailReportActivity extends AppCompatActivity {
 
         Response.Listener<String> listener = new Response.Listener<String>() {
 
+            /**
+            * Pulls rat report object from database and
+            * turns it into a new RatReport object.
+            *
+            * @param response  id of object selected
+            * @throws e  JSONException if occurs  
+            */
             @Override
             public void onResponse(String response) {
                 try {
                     // get the JSON object returned from the database
                     JSONObject x = new JSONObject(response);
-                    //turn into a RatReport object
                     RatReport rat = new RatReport(x.getString("primaryId"), x.getString("date"),
                             x.getString("locationType"), x.getString("zip"), x.getString("address"),
                             x.getString("city"), x.getString("borough"), x.getString("latitude"),
@@ -70,7 +82,6 @@ public class DetailReportActivity extends AppCompatActivity {
                 }
             }
         };
-        //create request & add to queue
         DetailRequest request = new DetailRequest(reportId, listener);
         RequestQueue queue = Volley.newRequestQueue(DetailReportActivity.this);
         queue.add(request);
