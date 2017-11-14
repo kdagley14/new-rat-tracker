@@ -16,7 +16,21 @@ public class CreateReportRequest extends StringRequest {
     private static final String CREATEREPORT_REQUEST_URL = "http://rat-tracker.000webhostapp.com/CreateReport.php";
     private Map<String, String> params;
 
-    // access the database and add all of the rat report's info into another row of the database
+    /**
+    * This method accesses the database and adds
+    * all of the rat report's info into another row of the database
+    *
+    * @param date  date of the rat report
+    * @param locationType  apartment/school/home/etc
+    * @param zip  zipcode of sighting
+    * @param address  address of sighting
+    * @param city  city report was in 
+    * @param borough  neighborhood name if relevant
+    * @param latitude  latitude 
+    * @param longitude  corresponding longitude
+    * @param listener  listener that takes in user information
+    * @return params  returns info entered through parammeters
+    */
     public CreateReportRequest(String date, String locationType, String zip,
                                String address, String city, String borough, String latitude,
                                String longitude, Response.Listener<String> listener) {
