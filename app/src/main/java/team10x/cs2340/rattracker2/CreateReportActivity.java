@@ -28,6 +28,10 @@ public class CreateReportActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
 
+    /**
+    * This method creates all of the necessary layout 
+    * objects at start of the activity when a user is creating a report.
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +58,13 @@ public class CreateReportActivity extends AppCompatActivity {
 
         NavigationView nv = (NavigationView)findViewById(R.id.navigation_view);
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            /**
+            * Method that starts activity that matches the
+            * menu item that a user selects.
+            *
+            * @return true or activity begins
+            * @param  menu item selected by user
+            */
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
@@ -78,6 +89,11 @@ public class CreateReportActivity extends AppCompatActivity {
         });
 
         bClear.setOnClickListener(new View.OnClickListener() {
+            /**
+            * This method simply creates the effect
+            * of replacing text in a text box with a blank space
+            * as a user clicks to edit it.
+            */
             @Override
             public void onClick(View v) {
                 etDate.setText("");
@@ -130,6 +146,10 @@ public class CreateReportActivity extends AppCompatActivity {
 
     }
 
+    /**
+    * This method just confirms true or false
+    * if a menu item is selected.
+    */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(mToggle.onOptionsItemSelected(item)) {
