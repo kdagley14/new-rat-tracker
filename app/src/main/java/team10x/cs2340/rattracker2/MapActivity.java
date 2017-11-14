@@ -125,7 +125,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 try {
                     // get the JSON object returned from the database
                     JSONArray jsonResponse = new JSONArray(response);
-                    rats = new ArrayList<RatReport>();
+                    rats = new ArrayList<>();
                     //turn into ratReport objects
                     for (int i = 0; i < jsonResponse.length(); i++) {
                         JSONObject x = jsonResponse.getJSONObject(i);
@@ -156,10 +156,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(mToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return mToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
     private static String toMapString(RatReport report) {

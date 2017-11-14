@@ -27,7 +27,8 @@ class RegisterRequest extends StringRequest {
     * @param user_type  type of user
     * @param listener  response listener object to read user's text entries
     */
-    RegisterRequest(String name, String username, String password, String user_type, Response.Listener<String> listener) {
+    RegisterRequest(String name, String username, String password, String user_type,
+                    Response.Listener<String> listener) {
         super(Method.POST, REGISTER_REQUEST_URL, listener, null);
         params = new HashMap<>();
         params.put("name", name);

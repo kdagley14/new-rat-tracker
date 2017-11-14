@@ -41,7 +41,6 @@ import java.util.concurrent.TimeUnit;
 * and converts it into usable data for the graph.
 */
 public class GraphActivity extends AppCompatActivity {
-    private ActionBarDrawerToggle mToggle;
     private final List<BarEntry> barEntries = new ArrayList<>();
     private final Collection<String> dates = new ArrayList<>();
     private int numEntries;
@@ -66,8 +65,8 @@ public class GraphActivity extends AppCompatActivity {
         TextView[] key = {etOne, etTwo, etThree, etFour, etFive, etSix};
 
         DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mToggle = new ActionBarDrawerToggle(GraphActivity.this, mDrawerLayout, R.string.open,
-                R.string.closed);
+        ActionBarDrawerToggle mToggle = new ActionBarDrawerToggle(GraphActivity.this,
+                mDrawerLayout, R.string.open, R.string.closed);
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();

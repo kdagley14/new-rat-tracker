@@ -20,7 +20,6 @@ class NavigationDrawer {
     * @param menuItem  new menu item object 
     */
     public void getActivityOptions(AppCompatActivity currActivity, MenuItem menuItem) {
-        final AppCompatActivity current = currActivity;
         switch (menuItem.getItemId()) {
             case (R.id.reports_list):
                 Intent reportsListIntent = new Intent(currActivity, HomeActivity.class);

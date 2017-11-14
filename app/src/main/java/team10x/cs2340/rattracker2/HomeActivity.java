@@ -90,7 +90,7 @@ public class HomeActivity extends AppCompatActivity {
                 try {
                     // get the JSON object returned from the database
                     JSONArray jsonResponse = new JSONArray(response);
-                    rats = new ArrayList<RatReport>();
+                    rats = new ArrayList<>();
                     //turn into ratreport objects
                     for (int i = 0; i < jsonResponse.length(); i++) {
                         JSONObject x = jsonResponse.getJSONObject(i);
@@ -99,7 +99,7 @@ public class HomeActivity extends AppCompatActivity {
                                 x.getString("borough")));
                     }
                     //create a list of the toStrings that just show the date, borough, & zip
-                    List<String> testArray = new ArrayList<String>();
+                    List<String> testArray = new ArrayList<>();
                     for (RatReport i: rats) {
                         testArray.add(i.toListString());
                     }
@@ -107,10 +107,10 @@ public class HomeActivity extends AppCompatActivity {
                     // This is the array adapter, it takes the context of the activity as a
                     // first parameter, the type of list view as a second parameter and your
                     // array as a third parameter.
-                    ListAdapter arrayAdapter = new ArrayAdapter<String>(
+                    ListAdapter arrayAdapter = new ArrayAdapter<>(
                             HomeActivity.this,
                             android.R.layout.simple_list_item_1,
-                            testArray );
+                            testArray);
 
                     lvReports.setAdapter(arrayAdapter);
                 } catch (JSONException e) {
@@ -159,9 +159,6 @@ public class HomeActivity extends AppCompatActivity {
     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(mToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return mToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 }

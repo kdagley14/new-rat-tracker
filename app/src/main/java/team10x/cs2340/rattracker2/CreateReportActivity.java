@@ -22,7 +22,6 @@ import com.android.volley.toolbox.Volley;
  * then will return an error message
  */
 public class CreateReportActivity extends AppCompatActivity {
-    private ActionBarDrawerToggle mToggle;
 
     /**
     * This method creates all of the necessary layout 
@@ -34,8 +33,8 @@ public class CreateReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_report);
 
         DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mToggle = new ActionBarDrawerToggle(CreateReportActivity.this, mDrawerLayout,
-                R.string.open, R.string.closed);
+        ActionBarDrawerToggle mToggle = new ActionBarDrawerToggle(CreateReportActivity.this,
+                mDrawerLayout, R.string.open, R.string.closed);
 
         //the objects from the layout
         final EditText etDate = (EditText) findViewById(R.id.etDate);
