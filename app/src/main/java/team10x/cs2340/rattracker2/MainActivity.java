@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-/*
+/**
 * This class sets up the first action within the application.
 * It creates the first screen, containing the login and 
 * register buttons.

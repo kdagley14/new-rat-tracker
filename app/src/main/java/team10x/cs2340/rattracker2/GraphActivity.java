@@ -33,13 +33,13 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-/*
-* This class creates all aspects and functionality
-* of the graph included in the application, 
-* including layout objects.  
-* Also takes the information from the database
-* and converts it into usable data for the graph.
-*/
+/**
+  * This class creates all aspects and functionality
+  * of the graph included in the application,
+  * including layout objects.
+  * Also takes the information from the database
+  * and converts it into usable data for the graph.
+  */
 public class GraphActivity extends AppCompatActivity {
     private final List<BarEntry> barEntries = new ArrayList<>();
     private final Collection<String> dates = new ArrayList<>();
@@ -70,6 +70,7 @@ public class GraphActivity extends AppCompatActivity {
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
+        //noinspection ChainedMethodCall
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         NavigationView nv = (NavigationView)findViewById(R.id.navigation_view);
@@ -103,7 +104,6 @@ public class GraphActivity extends AppCompatActivity {
             * It then updates graph with new entry.
             *
             * @param response  String that should correspond with an id*
-            * @throws JSONException
             */
             @Override
             public void onResponse(String response) {

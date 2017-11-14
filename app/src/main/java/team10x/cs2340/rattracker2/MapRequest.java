@@ -7,7 +7,7 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-/*
+/**
 * This class confirms that the date range
 * the user submitted to filter the map has
 * valid credentials.
@@ -24,7 +24,6 @@ class MapRequest extends StringRequest {
     * @param start  start date for filter
     * @param end  end date for filter
     * @param listener  response listener object to read user entries
-    * @return params  info input into parameters
     */
     public MapRequest(String start, String end, Response.Listener<String> listener) {
         super(Request.Method.POST, MAP_REQUEST_URL, listener, null);

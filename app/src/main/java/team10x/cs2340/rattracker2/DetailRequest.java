@@ -23,7 +23,6 @@ class DetailRequest extends StringRequest {
     *
     * @param primaryId  object ID
     * @param listener  response listener to register user's action
-    * @return params  information from parameters 
     */
     public DetailRequest(String primaryId, Response.Listener<String> listener) {
         super(Request.Method.POST, DETAIL_REQUEST_URL, listener, null);

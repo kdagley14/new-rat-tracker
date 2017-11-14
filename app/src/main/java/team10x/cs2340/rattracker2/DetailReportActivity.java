@@ -14,7 +14,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/*
+/**
 * This class creates the page that results 
 * from clicking on a specific rat report, and allows 
 * the user to see the details of each respective sighting. 
@@ -46,7 +46,7 @@ public class DetailReportActivity extends AppCompatActivity {
         });
 
         //get primary id of the report clicked
-        Bundle extras = getIntent().getExtras();
+        @SuppressWarnings("ChainedMethodCall") Bundle extras = getIntent().getExtras();
         String reportId = extras.getString("primary_id");
 
         Response.Listener<String> listener = new Response.Listener<String>() {
@@ -56,7 +56,6 @@ public class DetailReportActivity extends AppCompatActivity {
             * turns it into a new RatReport object.
             *
             * @param response  id of object selected
-            * @throws JSONException if occurs
             */
             @Override
             public void onResponse(String response) {

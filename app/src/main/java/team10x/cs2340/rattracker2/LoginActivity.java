@@ -15,7 +15,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/*
+/**
 * This class creates the login activity, including
 * all text fields and buttons to allow the user to enter
 * their login information.
@@ -72,8 +72,8 @@ public class LoginActivity extends AppCompatActivity {
     */
     private void login(EditText user, EditText pass) {
         // get the username(email) and password the user entered
-        final String username = user.getText().toString();
-        final String password = pass.getText().toString();
+        @SuppressWarnings("ChainedMethodCall") final String username = user.getText().toString();
+        @SuppressWarnings("ChainedMethodCall") final String password = pass.getText().toString();
         Response.Listener<String> listener = new Response.Listener<String>() {
 
             /**
@@ -107,6 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                     } else {
                         // alert the user that the login failed
                         AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                        //noinspection ChainedMethodCall,ChainedMethodCall,ChainedMethodCall
                         builder.setMessage("Login Failed")
                                 .setNegativeButton("Retry", null)
                                 .create()

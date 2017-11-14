@@ -21,7 +21,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
+/**
 * This class defines all activities and capabilities
 * possible from the home screen.  This is the screen the user 
 * is taken to after a successful login.
@@ -54,6 +54,7 @@ public class HomeActivity extends AppCompatActivity {
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
+        //noinspection ChainedMethodCall
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         NavigationView nv = (NavigationView)findViewById(R.id.navigation_view);
@@ -83,7 +84,6 @@ public class HomeActivity extends AppCompatActivity {
             * into a new JSONArray object.
             *
             * @param response  String used to identify desired JSON object
-            * @throws JSONException e
             */
             @Override
             public void onResponse(String response) {

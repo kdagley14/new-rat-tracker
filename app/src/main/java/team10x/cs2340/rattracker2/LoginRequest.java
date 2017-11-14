@@ -24,7 +24,6 @@ class LoginRequest extends StringRequest {
     * @param username  text placed in field created for username input
     * @param password  text placed in field created for password input
     * @param listener  response listener to read the user's input
-    * @return params  information given by method parameters
     */
     public LoginRequest(String username, String password, Response.Listener<String> listener) {
         super(Request.Method.POST, LOGIN_REQUEST_URL, listener, null);

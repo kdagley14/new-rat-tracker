@@ -50,6 +50,7 @@ public class CreateReportActivity extends AppCompatActivity {
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
+        //noinspection ChainedMethodCall
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         NavigationView nv = (NavigationView)findViewById(R.id.navigation_view);
@@ -92,14 +93,14 @@ public class CreateReportActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // get the text the user entered in each field
-                final String date = etDate.getText().toString();
-                final String locationType = etLocationType.getText().toString();
-                final String zip = etZipCode.getText().toString();
-                final String address = etAddress.getText().toString();
-                final String city = etCity.getText().toString();
-                final String borough = etBorough.getText().toString();
-                final String latitude = etLatitude.getText().toString();
-                final String longitude = etLongitude.getText().toString();
+                @SuppressWarnings("ChainedMethodCall") final String date = etDate.getText().toString();
+                @SuppressWarnings("ChainedMethodCall") final String locationType = etLocationType.getText().toString();
+                @SuppressWarnings("ChainedMethodCall") final String zip = etZipCode.getText().toString();
+                @SuppressWarnings("ChainedMethodCall") final String address = etAddress.getText().toString();
+                @SuppressWarnings("ChainedMethodCall") final String city = etCity.getText().toString();
+                @SuppressWarnings("ChainedMethodCall") final String borough = etBorough.getText().toString();
+                @SuppressWarnings("ChainedMethodCall") final String latitude = etLatitude.getText().toString();
+                @SuppressWarnings("ChainedMethodCall") final String longitude = etLongitude.getText().toString();
 
                 Response.Listener<String> listener = new Response.Listener<String>() {
 

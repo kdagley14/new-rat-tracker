@@ -26,7 +26,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
+/**
 * Creates map view containing rat sighting within
 * an area and a user defined date range
 */
@@ -55,6 +55,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
+        //noinspection ChainedMethodCall
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         NavigationView nv = (NavigationView)findViewById(R.id.navigation_view);
@@ -76,6 +77,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         sMapFragment.getMapAsync(MapActivity.this);
         FragmentManager sFm = getSupportFragmentManager();
+        //noinspection ChainedMethodCall,ChainedMethodCall
         sFm.beginTransaction().add(R.id.map, sMapFragment).commit();
 
         final Button bSearch = (Button) findViewById(R.id.view_graph_button);
@@ -134,6 +136,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                                 x.getString("latitude"), x.getString("longitude")));
                     }
                     for (RatReport report: rats) {
+                        //noinspection ChainedMethodCall,ChainedMethodCall,ChainedMethodCall
                         map.addMarker(new MarkerOptions().position(report.getLatLong())
                                 .title(toMapString(report)).snippet("Date: " + report.getDate()
                                         + "    Address: " + report.getAddress()));

@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+/**
+ * allows user to input a date range for graph
+ */
 public class GraphDateRangeActivity extends AppCompatActivity {
     private ActionBarDrawerToggle mToggle;
 
@@ -29,6 +32,7 @@ public class GraphDateRangeActivity extends AppCompatActivity {
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
+        //noinspection ChainedMethodCall
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         NavigationView nv = (NavigationView)findViewById(R.id.navigation_view);
@@ -44,8 +48,8 @@ public class GraphDateRangeActivity extends AppCompatActivity {
         bViewGraph.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String start = etStartDate.getText().toString();
-                String end = etEndDate.getText().toString();
+                @SuppressWarnings("ChainedMethodCall") String start = etStartDate.getText().toString();
+                @SuppressWarnings("ChainedMethodCall") String end = etEndDate.getText().toString();
 
                 Intent viewGraphIntent = new Intent(GraphDateRangeActivity.this,
                         GraphActivity.class);

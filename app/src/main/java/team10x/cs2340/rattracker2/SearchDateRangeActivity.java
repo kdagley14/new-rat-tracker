@@ -35,8 +35,8 @@ public class SearchDateRangeActivity extends AppCompatActivity {
             */
             @Override
             public void onClick(View v) {
-                String start = etStartDate.getText().toString();
-                String end = etEndDate.getText().toString();
+                @SuppressWarnings("ChainedMethodCall") String start = etStartDate.getText().toString();
+                @SuppressWarnings("ChainedMethodCall") String end = etEndDate.getText().toString();
 
                 Intent searchIntent = new Intent(SearchDateRangeActivity.this, MapActivity.class);
                 searchIntent.putExtra("start", start);

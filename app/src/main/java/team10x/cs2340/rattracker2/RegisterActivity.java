@@ -17,7 +17,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/*
+/**
 * This class creates the activity within the application
 * that allows users to enter information during registration
 */
@@ -47,10 +47,10 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // get the info the user entered
-                final String name = etName.getText().toString();
-                final String username = etUsername.getText().toString();
-                final String password = etPassword.getText().toString();
-                final String user_type = sUserType.getSelectedItem().toString();
+                @SuppressWarnings("ChainedMethodCall") final String name = etName.getText().toString();
+                @SuppressWarnings("ChainedMethodCall") final String username = etUsername.getText().toString();
+                @SuppressWarnings("ChainedMethodCall") final String password = etPassword.getText().toString();
+                @SuppressWarnings("ChainedMethodCall") final String user_type = sUserType.getSelectedItem().toString();
                 register(name, username, password, user_type);
 
             }
@@ -71,6 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void register (String name, String username, String password, String user_type) {
         if ("".equals(name) || "".equals(username) || "".equals(password)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+            //noinspection ChainedMethodCall,ChainedMethodCall,ChainedMethodCall
             builder.setMessage("No field may be null")
                     .setNegativeButton("Retry", null)
                     .create()
@@ -95,6 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
                             // alert the user that registration failed
                             AlertDialog.Builder builder = new AlertDialog.Builder(
                                     RegisterActivity.this);
+                            //noinspection ChainedMethodCall,ChainedMethodCall,ChainedMethodCall
                             builder.setMessage("Email already in use")
                                     .setNegativeButton("Retry", null)
                                     .create()
