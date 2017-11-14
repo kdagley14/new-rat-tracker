@@ -37,6 +37,13 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private List<RatReport> rats;
     private GoogleMap map;
 
+    /**
+    * This method creates all layout objects necessary for
+    * a user to interact with the map as soon as 
+    * it is intended to load.
+    *
+    * @param savedInstanceState  saved states of all objects and widgets
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +60,13 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         NavigationView nv = (NavigationView)findViewById(R.id.navigation_view);
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            /**
+            * Method makes sure that selection on navigation menu
+            * corresponds with current screen, the map
+            *
+            * @param menuItem  selected item on menu
+            * @return boolean  true if the menu selection and current screen match
+            */
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 NavigationDrawer.getActivityOptions(MapActivity.this, menuItem);
@@ -66,6 +80,12 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         final Button bSearch = (Button) findViewById(R.id.view_graph_button);
         bSearch.setOnClickListener(new View.OnClickListener() {
+            /**
+            * Method that starts search date range activity 
+            * when filter entries by date is selected
+            *
+            * @param v  action user takes to begin search date activity
+            */
             @Override
             public void onClick(View v) {
                 Intent searchIntent = new Intent(MapActivity.this, SearchDateRangeActivity.class);
@@ -74,6 +94,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         });
     }
 
+    /**
+    * Method loads google map functionality at start of map activity
+    *
+    * @param googleMap  Google map object
+    */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.map = googleMap;
@@ -122,6 +147,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     }
 
+    /**
+    * Method allows for toggle function on selected menu item
+    */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(mToggle.onOptionsItemSelected(item)) {
