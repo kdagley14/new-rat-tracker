@@ -21,15 +21,30 @@ class RatReport {
     private String latitude = "";
     private String longitude = "";
 
-    public RatReport(String primaryId, String date, String zip, String borough) {
+    /**
+    * Method creates new rat report entry with given information
+    *
+    * @param primaryId  string defining rat reports ID
+    * @param date  string defining date of rat report
+    * @param zip  string defining zipcode of report entry
+    * @param borough  string defining neighborhood of rat sigting
+    */
+    RatReport(String primaryId, String date, String zip, String borough) {
         this.primaryId = primaryId;
         this.date = date;
         this.zip = zip;
         this.borough = borough;
     }
-
-    public RatReport(String primaryId, String date, String address, String latitude,
-                     String longitude) {
+    /**
+    * Method creates new rat report entry with given information
+    * 
+    * @param primaryId  string defining rat reports ID
+    * @param date  string defining date of rat report
+    * @param address  string defining street address of report entry
+    * @param latitude  string defining global latitude of rat sighting
+    * @param longitude  string defining corresponding global longitude of rat sighting
+    */
+    RatReport(String primaryId, String date, String address, String latitude, String longitude) {
         this.primaryId = primaryId;
         this.date = date;
         this.address = address;
@@ -37,7 +52,20 @@ class RatReport {
         this.longitude = longitude;
     }
 
-    public RatReport(String primaryId, String date, String locationType, String zip, String address,
+    /**
+    * Method creates new rat report entry with given information
+    * 
+    * @param primaryId  string defining rat reports ID
+    * @param date  string defining date of rat report
+    * @param locationType  string defining type of location the sighting occurred at
+    * @param zip  string defining zipcode of rat sigting
+    * @param address  string defining street address of rat sighting
+    * @param city  string defining the city the rat sighting occured in
+    * @param borough  string defining the neighborhood the rat sighting occured in
+    * @param latitude  string defining global latitude of rat sighting
+    * @param longitude  string defining corresponding global longitude of rat sighting
+    **/
+    RatReport(String primaryId, String date, String locationType, String zip, String address,
                      String city, String borough, String latitude, String longitude) {
         this.primaryId = primaryId;
         this.date = date;
@@ -50,30 +78,58 @@ class RatReport {
         this.longitude = longitude;
     }
 
-    public String toListString() {
+    /**
+    * This method returns the date, borough, and zip
+    * of rat report in a specific format
+    *
+    * @return date + "       " + borough + ", " + zip
+    */
+    String toListString() {
         return date + "       " + borough + ", " + zip;
     }
 
-    public String getDate() {
+    /**
+    * This method returns the date of rat report
+    * @return date  date of rat report
+    */
+    String getDate() {
         return date;
     }
 
-    public String getAddress() {
+    /**
+    * This method returns the address of rat report
+    * @return address  street address of rat report
+    */
+    String getAddress() {
         return address;
     }
 
-    public CharSequence toDetailString() {
+    /**
+    * This method puts all of the report details into a string with
+    * formatted spacing
+    */
+    CharSequence toDetailString() {
         return "Date: \t\t" + date + "\nLocation Type: \t\t" + locationType + "\nZip Code: \t\t"
                 + zip + "\nAddress: \t\t" + address + "\nCity: \t\t" + city + "\nBorough: \t\t"
                 + borough + "\nLatitude: \t\t" + latitude + "\nLongitude: \t\t" + longitude
                 + "\nReference #: \t\t" + primaryId;
     }
 
-    public String getPrimaryId() {
+    /**
+    * Method returns  rat report id
+    *
+    * @return primaryId  primary id of rat report
+    */
+    String getPrimaryId() {
         return primaryId;
     }
 
-    public LatLng getLatLong() {
+    /**
+    * Method returns latitude and longitude coordinates of rat report
+    *
+    * @return LatLng  latitude and longitude values in form of doubles
+    */
+    LatLng getLatLong() {
         return new LatLng(Double.parseDouble(this.latitude), Double.parseDouble(this.longitude));
     }
 }
