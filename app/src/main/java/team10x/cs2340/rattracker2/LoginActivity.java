@@ -22,6 +22,12 @@ import org.json.JSONObject;
 */
 public class LoginActivity extends AppCompatActivity {
 
+    /**
+    * This method creates all layout objects necessary for
+    * a user to login as soon as they choose the login activity.
+    *
+    * @param savedInstanceState  saved states of all objects and widgets
+    */
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +49,11 @@ public class LoginActivity extends AppCompatActivity {
 
         // set action when cancel button is clicked
         bCancel.setOnClickListener(new View.OnClickListener() {
+            /**
+            * Takes user back to main scrren if they click cancel
+            *
+            * @param view  current app View
+            */
             @Override
             public void onClick(View view) {
 
@@ -53,12 +64,27 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    /**
+    * Method that reads users entries for username and password.
+    * 
+    * @param user  field where user should enter registered email
+    * @param pass  field in which user should enter password corresponding with email entered
+    */
     public void login(EditText user, EditText pass) {
         // get the username(email) and password the user entered
         final String username = user.getText().toString();
         final String password = pass.getText().toString();
         Response.Listener<String> listener = new Response.Listener<String>() {
 
+            /**
+            * Method that checks to see if the users credentials match
+            * with an existing JSON object from database.
+            *
+            * If the login succeeds, user is taken to home screen, and
+            * if the login failed, then the user is alerted to try again.
+            *
+            * @param response  users entered credentials
+            */
             @Override
             public void onResponse(String response) {
                 try {
