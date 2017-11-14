@@ -35,6 +35,13 @@ public class HomeActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
 
+    /**
+    * This method creates all layout objects necessary for
+    * a user to interact with the home screen as soon as 
+    * the home screen is intended to load.
+    *
+    * @param savedInstanceState  saved states of all objects and widgets
+    */
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +60,13 @@ public class HomeActivity extends AppCompatActivity {
         NavigationView nv = (NavigationView)findViewById(R.id.navigation_view);
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
+            /**
+            * This method is just confirming that the item selected
+            * in the navigation menu equals the Home Activity selection.
+            *
+            * @param menuItem  MenuItem being compared
+            * @return boolean  true or false value
+            */
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 NavigationDrawer.getActivityOptions(HomeActivity.this, menuItem);
@@ -63,6 +77,14 @@ public class HomeActivity extends AppCompatActivity {
         //generate list from database
         final Response.Listener<String> listener = new Response.Listener<String>() {
 
+            /**
+            * Method uses parameter to identify which object
+            * to return from database, and then turn that object
+            * into a new JSONArray object.
+            *
+            * @param response  String used to identify desired JSON object
+            * @throws e  JSONException
+            */
             @Override
             public void onResponse(String response) {
                 try {
@@ -105,6 +127,17 @@ public class HomeActivity extends AppCompatActivity {
         //the detailpage activity so it can get the rest of the information from the database;
         //goes to detail page
         lvReports.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            /**
+            * Method that makes it so when the user clicks an item,
+            * they get the primary id of the corresponding rat report, and 
+            * send that to the detail page activity so the application can
+            * pull the rest of the information from the database
+            *
+            * @param parent  AdapterView
+            * @param view  item View
+            * @param position  integer representing object position
+            * @param id  long integer representing object id
+            */
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 RatReport rat = rats.get(position);
@@ -116,6 +149,13 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
+    /**
+    * This method is just confirming that the item selected
+    * in the navigation menu equals the Home Activity selection.
+    *
+    * @param item  MenuItem being compared
+    * @return boolean  true or false value
+    */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(mToggle.onOptionsItemSelected(item)) {
