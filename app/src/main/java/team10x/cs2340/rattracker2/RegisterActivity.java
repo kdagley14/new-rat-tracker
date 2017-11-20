@@ -47,10 +47,14 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // get the info the user entered
-                @SuppressWarnings("ChainedMethodCall") final String name = etName.getText().toString();
-                @SuppressWarnings("ChainedMethodCall") final String username = etUsername.getText().toString();
-                @SuppressWarnings("ChainedMethodCall") final String password = etPassword.getText().toString();
-                @SuppressWarnings("ChainedMethodCall") final String user_type = sUserType.getSelectedItem().toString();
+                @SuppressWarnings("ChainedMethodCall") final String name = etName.getText()
+                        .toString();
+                @SuppressWarnings("ChainedMethodCall") final String username = etUsername.getText()
+                        .toString();
+                @SuppressWarnings("ChainedMethodCall") final String password = etPassword.getText()
+                        .toString();
+                @SuppressWarnings("ChainedMethodCall") final String user_type = sUserType
+                        .getSelectedItem().toString();
                 register(name, username, password, user_type);
 
             }

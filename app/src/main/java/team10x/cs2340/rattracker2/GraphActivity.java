@@ -27,7 +27,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -42,7 +41,6 @@ import java.util.concurrent.TimeUnit;
   */
 public class GraphActivity extends AppCompatActivity {
     private final List<BarEntry> barEntries = new ArrayList<>();
-    private final Collection<String> dates = new ArrayList<>();
     private int numEntries;
     private BarChart barChart;
 
@@ -159,7 +157,6 @@ public class GraphActivity extends AppCompatActivity {
 
 
                 // add dates to bar graph data
-                dates.add(start + " - " + end);
                 TextView temp = key[i];
                 String tempString = temp.getText() + start + " - " + end;
                 temp.setText(tempString);
@@ -175,16 +172,11 @@ public class GraphActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
         Log.d("One ", barEntries + "");
         barChart.setTouchEnabled(true);
         barChart.setDragEnabled(true);
-        //barChart.setScaleEnabled(true);
         XAxis xAxis = barChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        //BarDataSet barDataSet = new BarDataSet(barEntries, "Dates");
-        //BarData theData = new BarData(barDataSet);
-        //barChart.setData(theData);
     }
 
 }

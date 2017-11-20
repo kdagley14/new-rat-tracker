@@ -48,7 +48,8 @@ public class GraphDateRangeActivity extends AppCompatActivity {
         bViewGraph.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                @SuppressWarnings("ChainedMethodCall") String start = etStartDate.getText().toString();
+                @SuppressWarnings("ChainedMethodCall") String start = etStartDate.getText()
+                        .toString();
                 @SuppressWarnings("ChainedMethodCall") String end = etEndDate.getText().toString();
 
                 Intent viewGraphIntent = new Intent(GraphDateRangeActivity.this,
