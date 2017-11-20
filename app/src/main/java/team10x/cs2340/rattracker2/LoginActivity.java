@@ -21,7 +21,7 @@ import org.json.JSONObject;
 * their login information.
 */
 public class LoginActivity extends AppCompatActivity {
-    public boolean result;
+    private boolean result;
 
     /**
     * This method creates all layout objects necessary for
