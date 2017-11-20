@@ -30,7 +30,6 @@ class CreateReportRequest extends StringRequest {
     * @param latitude  latitude 
     * @param longitude  corresponding longitude
     * @param listener  listener that takes in user information
-    * @return params  returns info entered through parameters
     */
     public CreateReportRequest(String date, String locationType, String zip,
                                String address, String city, String borough, String latitude,
