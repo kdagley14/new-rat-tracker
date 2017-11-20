@@ -29,12 +29,12 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         // get all the elements so they can be referenced later
-        final EditText etName = (EditText) findViewById(R.id.name);
-        final EditText etUsername = (EditText) findViewById(R.id.email);
-        final EditText etPassword = (EditText) findViewById(R.id.password);
-        final Button bRegister = (Button) findViewById(R.id.register_button);
-        final Button bCancel = (Button) findViewById(R.id.cancel_button);
-        final Spinner sUserType = (Spinner) findViewById(R.id.user_type_spinner);
+        final EditText etName = findViewById(R.id.name);
+        final EditText etUsername = findViewById(R.id.email);
+        final EditText etPassword = findViewById(R.id.password);
+        final Button bRegister = findViewById(R.id.register_button);
+        final Button bCancel = findViewById(R.id.cancel_button);
+        final Spinner sUserType = findViewById(R.id.user_type_spinner);
 
         // set the options for the spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,

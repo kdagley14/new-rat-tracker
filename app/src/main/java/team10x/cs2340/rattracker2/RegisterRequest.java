@@ -23,7 +23,7 @@ class RegisterRequest extends StringRequest {
     *
     * @param name  user's name
     * @param username  username created by new user
-    * @param password  passwrod created by new user
+    * @param password  password created by new user
     * @param user_type  type of user
     * @param listener  response listener object to read user's text entries
     */

@@ -34,10 +34,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // get elements so they can be referenced later
-        final EditText etUsername = (EditText) findViewById(R.id.email);
-        final EditText etPassword = (EditText) findViewById(R.id.password);
-        final Button bLogin = (Button) findViewById(R.id.login_button);
-        final Button bCancel = (Button) findViewById(R.id.cancel_button);
+        final EditText etUsername = findViewById(R.id.email);
+        final EditText etPassword = findViewById(R.id.password);
+        final Button bLogin = findViewById(R.id.login_button);
+        final Button bCancel = findViewById(R.id.cancel_button);
 
         // set action when login button is clicked
         bLogin.setOnClickListener(new View.OnClickListener() {

@@ -31,8 +31,8 @@ public class DetailReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_report);
 
         //layout objects
-        final Button bBack = (Button) findViewById(R.id.back_button);
-        final TextView tvDetails = (TextView) findViewById(R.id.tvReportDetails);
+        final Button bBack = findViewById(R.id.back_button);
+        final TextView tvDetails = findViewById(R.id.tvReportDetails);
 
         bBack.setOnClickListener(new View.OnClickListener() {
             /**

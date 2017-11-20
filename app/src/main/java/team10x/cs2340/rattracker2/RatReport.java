@@ -26,8 +26,8 @@ class RatReport {
     *
     * @param primaryId  string defining rat reports ID
     * @param date  string defining date of rat report
-    * @param zip  string defining zipcode of report entry
-    * @param borough  string defining neighborhood of rat sigting
+    * @param zip  string defining zip code of report entry
+    * @param borough  string defining neighborhood of rat sighting
     */
     RatReport(String primaryId, String date, String zip, String borough) {
         this.primaryId = primaryId;
@@ -58,10 +58,10 @@ class RatReport {
     * @param primaryId  string defining rat reports ID
     * @param date  string defining date of rat report
     * @param locationType  string defining type of location the sighting occurred at
-    * @param zip  string defining zipcode of rat sigting
+    * @param zip  string defining zip code of rat sighting
     * @param address  string defining street address of rat sighting
-    * @param city  string defining the city the rat sighting occured in
-    * @param borough  string defining the neighborhood the rat sighting occured in
+    * @param city  string defining the city the rat sighting occurred in
+    * @param borough  string defining the neighborhood the rat sighting occurred in
     * @param latitude  string defining global latitude of rat sighting
     * @param longitude  string defining corresponding global longitude of rat sighting
     **/

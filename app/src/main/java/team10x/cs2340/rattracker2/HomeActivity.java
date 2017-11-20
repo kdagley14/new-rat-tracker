@@ -47,17 +47,17 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         //layout objects
-        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout mDrawerLayout = findViewById(R.id.drawer_layout);
         mToggle = new ActionBarDrawerToggle(HomeActivity.this, mDrawerLayout, R.string.open,
                 R.string.closed);
-        final ListView lvReports = (ListView) findViewById(R.id.lvReports);
+        final ListView lvReports = findViewById(R.id.lvReports);
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
         //noinspection ChainedMethodCall
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        NavigationView nv = (NavigationView)findViewById(R.id.navigation_view);
+        NavigationView nv = findViewById(R.id.navigation_view);
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
             /**
@@ -91,7 +91,7 @@ public class HomeActivity extends AppCompatActivity {
                     // get the JSON object returned from the database
                     JSONArray jsonResponse = new JSONArray(response);
                     rats = new ArrayList<>();
-                    //turn into ratreport objects
+                    //turn into ratReport objects
                     for (int i = 0; i < jsonResponse.length(); i++) {
                         JSONObject x = jsonResponse.getJSONObject(i);
                         rats.add(new RatReport(x.getString("primaryId"),

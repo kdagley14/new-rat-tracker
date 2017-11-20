@@ -32,28 +32,28 @@ public class CreateReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_report);
 
-        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout mDrawerLayout = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle mToggle = new ActionBarDrawerToggle(CreateReportActivity.this,
                 mDrawerLayout, R.string.open, R.string.closed);
 
         //the objects from the layout
-        final EditText etDate = (EditText) findViewById(R.id.etDate);
-        final EditText etLocationType = (EditText) findViewById(R.id.etLocationType);
-        final EditText etZipCode =  findViewById(R.id.etZipCode);
-        final EditText etAddress = (EditText) findViewById(R.id.etAddress);
-        final EditText etCity = (EditText) findViewById(R.id.etCity);
-        final EditText etBorough = (EditText) findViewById(R.id.etBorough);
-        final EditText etLatitude = (EditText) findViewById(R.id.etLatitude);
-        final EditText etLongitude = (EditText) findViewById(R.id.etLongitude);
-        final Button bCreate = (Button) findViewById(R.id.create_button);
-        final Button bClear = (Button) findViewById(R.id.clear_button);
+        final EditText etDate = findViewById(R.id.etDate);
+        final EditText etLocationType = findViewById(R.id.etLocationType);
+        final EditText etZipCode = findViewById(R.id.etZipCode);
+        final EditText etAddress = findViewById(R.id.etAddress);
+        final EditText etCity = findViewById(R.id.etCity);
+        final EditText etBorough = findViewById(R.id.etBorough);
+        final EditText etLatitude = findViewById(R.id.etLatitude);
+        final EditText etLongitude = findViewById(R.id.etLongitude);
+        final Button bCreate = findViewById(R.id.create_button);
+        final Button bClear = findViewById(R.id.clear_button);
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
         //noinspection ChainedMethodCall
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        NavigationView nv = (NavigationView)findViewById(R.id.navigation_view);
+        NavigationView nv = findViewById(R.id.navigation_view);
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             /**
             * Method that starts activity that matches the

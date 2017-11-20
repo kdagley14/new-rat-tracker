@@ -22,11 +22,11 @@ public class GraphDateRangeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph_date_range);
 
-        final EditText etStartDate = (EditText) findViewById(R.id.etStartDate);
-        final EditText etEndDate = (EditText) findViewById(R.id.etEndDate);
-        final Button bViewGraph = (Button) findViewById(R.id.view_graph_button);
+        final EditText etStartDate = findViewById(R.id.etStartDate);
+        final EditText etEndDate = findViewById(R.id.etEndDate);
+        final Button bViewGraph = findViewById(R.id.view_graph_button);
 
-        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout mDrawerLayout = findViewById(R.id.drawer_layout);
         mToggle = new ActionBarDrawerToggle(GraphDateRangeActivity.this, mDrawerLayout,
                 R.string.open, R.string.closed);
 
@@ -35,7 +35,7 @@ public class GraphDateRangeActivity extends AppCompatActivity {
         //noinspection ChainedMethodCall
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        NavigationView nv = (NavigationView)findViewById(R.id.navigation_view);
+        NavigationView nv = findViewById(R.id.navigation_view);
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {

@@ -23,10 +23,10 @@ public class SearchDateRangeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_date_range);
 
-        final EditText etStartDate = (EditText) findViewById(R.id.etStartDate);
-        final EditText etEndDate = (EditText) findViewById(R.id.etEndDate);
-        final Button bSearch = (Button) findViewById(R.id.view_graph_button);
-        final Button bCancel = (Button) findViewById(R.id.cancel_button);
+        final EditText etStartDate = findViewById(R.id.etStartDate);
+        final EditText etEndDate = findViewById(R.id.etEndDate);
+        final Button bSearch = findViewById(R.id.view_graph_button);
+        final Button bCancel = findViewById(R.id.cancel_button);
 
         bSearch.setOnClickListener(new View.OnClickListener() {
             /**

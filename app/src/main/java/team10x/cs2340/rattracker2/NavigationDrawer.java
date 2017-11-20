@@ -15,7 +15,7 @@ class NavigationDrawer {
 
     /**
     * Method sets each available activity within the application
-    * to a seperate menu item
+    * to a separate menu item
     * @param currActivity  current activity state of application
     * @param menuItem  new menu item object 
     */

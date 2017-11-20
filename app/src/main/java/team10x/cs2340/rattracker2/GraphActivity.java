@@ -56,15 +56,15 @@ public class GraphActivity extends AppCompatActivity {
         setContentView(R.layout.activity_graph);
 
         //layout objects
-        TextView etOne = (TextView) findViewById(R.id.one);
-        TextView etTwo = (TextView) findViewById(R.id.two);
-        TextView etThree = (TextView) findViewById(R.id.three);
-        TextView etFour = (TextView) findViewById(R.id.four);
-        TextView etFive = (TextView) findViewById(R.id.five);
-        TextView etSix = (TextView) findViewById(R.id.six);
+        TextView etOne = findViewById(R.id.one);
+        TextView etTwo = findViewById(R.id.two);
+        TextView etThree = findViewById(R.id.three);
+        TextView etFour = findViewById(R.id.four);
+        TextView etFive = findViewById(R.id.five);
+        TextView etSix = findViewById(R.id.six);
         TextView[] key = {etOne, etTwo, etThree, etFour, etFive, etSix};
 
-        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout mDrawerLayout = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle mToggle = new ActionBarDrawerToggle(GraphActivity.this,
                 mDrawerLayout, R.string.open, R.string.closed);
 
@@ -73,7 +73,7 @@ public class GraphActivity extends AppCompatActivity {
         //noinspection ChainedMethodCall
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        NavigationView nv = (NavigationView)findViewById(R.id.navigation_view);
+        NavigationView nv = findViewById(R.id.navigation_view);
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
             /**
@@ -93,7 +93,7 @@ public class GraphActivity extends AppCompatActivity {
         Intent initialIntent = getIntent();
         String start = initialIntent.getStringExtra("start");
         String end = initialIntent.getStringExtra("end");
-        barChart = (BarChart) findViewById(R.id.bargraph);
+        barChart = findViewById(R.id.bargraph);
         numEntries = 1;
 
         //generate list from database

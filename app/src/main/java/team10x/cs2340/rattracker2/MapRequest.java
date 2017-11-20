@@ -35,7 +35,7 @@ class MapRequest extends StringRequest {
 
     
     /**
-    * Method that returns a map object containing information from paramaters
+    * Method that returns a map object containing information from parameters
     *
     * @return params  information previously received for entry
     */

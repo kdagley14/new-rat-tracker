@@ -49,7 +49,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         SupportMapFragment sMapFragment = SupportMapFragment.newInstance();
 
-        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout mDrawerLayout = findViewById(R.id.drawer_layout);
         mToggle = new ActionBarDrawerToggle(MapActivity.this, mDrawerLayout, R.string.open,
                 R.string.closed);
 
@@ -58,7 +58,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         //noinspection ChainedMethodCall
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        NavigationView nv = (NavigationView)findViewById(R.id.navigation_view);
+        NavigationView nv = findViewById(R.id.navigation_view);
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             /**
             * Method makes sure that selection on navigation menu
@@ -80,7 +80,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         //noinspection ChainedMethodCall,ChainedMethodCall
         sFm.beginTransaction().add(R.id.map, sMapFragment).commit();
 
-        final Button bSearch = (Button) findViewById(R.id.view_graph_button);
+        final Button bSearch = findViewById(R.id.view_graph_button);
         bSearch.setOnClickListener(new View.OnClickListener() {
             /**
             * Method that starts search date range activity 
