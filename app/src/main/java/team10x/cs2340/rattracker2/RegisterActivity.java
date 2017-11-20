@@ -23,6 +23,7 @@ import org.json.JSONObject;
 */
 public class RegisterActivity extends AppCompatActivity {
 
+    private int registrationResult;
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +56,29 @@ public class RegisterActivity extends AppCompatActivity {
                         .toString();
                 @SuppressWarnings("ChainedMethodCall") final String user_type = sUserType
                         .getSelectedItem().toString();
-                register(name, username, password, user_type);
+                int result = register(name, username, password, user_type,true, true);
+                if (result == 0) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                    //noinspection ChainedMethodCall,ChainedMethodCall,ChainedMethodCall
+                    builder.setMessage("No field may be null")
+                            .setNegativeButton("Retry", null)
+                            .create()
+                            .show();
+                } else if (result == 1) {
+                    // switch to the login screen
+                    Intent loginIntent = new Intent(RegisterActivity.this,
+                            LoginActivity.class);
+                    RegisterActivity.this.startActivity(loginIntent);
+                } else {
+                    // alert the user that registration failed
+                    AlertDialog.Builder builder = new AlertDialog.Builder(
+                            RegisterActivity.this);
+                    //noinspection ChainedMethodCall,ChainedMethodCall,ChainedMethodCall
+                    builder.setMessage("Email already in use")
+                            .setNegativeButton("Retry", null)
+                            .create()
+                            .show();
+                }
 
             }
         });
@@ -72,39 +95,26 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private void register (String name, String username, String password, String user_type) {
+    //returns 0 if one or more field if empty
+    //returns 1 if success
+    //returns 2 if email already in use
+    int register (String name, String username, String password, String user_type, boolean db,
+                  boolean conn) {
         if ("".equals(name) || "".equals(username) || "".equals(password)) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
-            //noinspection ChainedMethodCall,ChainedMethodCall,ChainedMethodCall
-            builder.setMessage("No field may be null")
-                    .setNegativeButton("Retry", null)
-                    .create()
-                    .show();
+            registrationResult = 0;
         } else {
             Response.Listener<String> listener = new Response.Listener<String>() {
-
                 @Override
                 public void onResponse(String response) {
                     try {
                         // get the JSON object returned from the database
                         JSONObject jsonResponse = new JSONObject(response);
                         boolean success = jsonResponse.getBoolean("success");
-
                         // check if the login was successful
                         if (success) {
-                            // switch to the login screen
-                            Intent loginIntent = new Intent(RegisterActivity.this,
-                                    LoginActivity.class);
-                            RegisterActivity.this.startActivity(loginIntent);
+                            registrationResult = 1;
                         } else {
-                            // alert the user that registration failed
-                            AlertDialog.Builder builder = new AlertDialog.Builder(
-                                    RegisterActivity.this);
-                            //noinspection ChainedMethodCall,ChainedMethodCall,ChainedMethodCall
-                            builder.setMessage("Email already in use")
-                                    .setNegativeButton("Retry", null)
-                                    .create()
-                                    .show();
+                            registrationResult = 2;
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -112,10 +122,19 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             };
             // create the register request and add it to the queue
-            RegisterRequest request = new RegisterRequest(name, username, password, user_type,
-                    listener);
-            RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
-            queue.add(request);
+            if (db) {
+                RegisterRequest request = new RegisterRequest(name, username, password, user_type,
+                        listener);
+                RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+                queue.add(request);
+            } else {
+                if (conn) {
+                    return 1;
+                }
+                return 2;
+            }
+
         }
+        return registrationResult;
     }
 }

@@ -1,6 +1,7 @@
 package team10x.cs2340.rattracker2;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -68,7 +69,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             * @return boolean  true if the menu selection and current screen match
             */
             @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 NavigationDrawer nav = new NavigationDrawer();
                 nav.getActivityOptions(MapActivity.this, menuItem);
                 return true;

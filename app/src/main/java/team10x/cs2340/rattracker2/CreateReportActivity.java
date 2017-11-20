@@ -1,6 +1,7 @@
 package team10x.cs2340.rattracker2;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -63,7 +64,7 @@ public class CreateReportActivity extends AppCompatActivity {
             * @param  menuItem item selected by user
             */
             @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 NavigationDrawer nav = new NavigationDrawer();
                 nav.getActivityOptions(CreateReportActivity.this, menuItem);
                 return true;

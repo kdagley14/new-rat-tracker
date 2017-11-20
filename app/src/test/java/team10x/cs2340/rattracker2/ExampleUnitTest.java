@@ -14,9 +14,16 @@ public class ExampleUnitTest {
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
     }
-
     @Test
     public void testRegistration() throws Exception {
+        RegisterActivity test = new RegisterActivity();
+        assertEquals(test.register("","","","", false, true),0);
+        assertEquals(test.register("","yes","yes","yes", false, true),0);
+        assertEquals(test.register("yes","","yes","yes", false, true),0);
+        assertEquals(test.register("yes","yes","","yes", false, true),0);
+
+        assertEquals(test.register("testN","testUN", "testPW","TestT", false, true),1);
+        assertEquals(test.register("testN","testUN", "testPW","TestT", false, false),2);
 
     }
 }
