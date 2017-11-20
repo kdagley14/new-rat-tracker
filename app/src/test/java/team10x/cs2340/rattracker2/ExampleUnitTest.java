@@ -25,8 +25,8 @@ public class ExampleUnitTest {
         assertEquals(test.register("yes","","yes","yes", false, true),0);
         assertEquals(test.register("yes","yes","","yes", false, true),0);
 
-        assertEquals(test.register("testN","testUN", "testPW","TestT", false, true),1);
-        assertEquals(test.register("testN","testUN", "testPW","TestT", false, false),2);
+        assertEquals(test.register("Name","UN", "PW","Type", false, true),1);
+        assertEquals(test.register("Name","UN", "PW","Type", false, false),2);
 
     }
     @Before
