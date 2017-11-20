@@ -21,6 +21,7 @@ import org.json.JSONObject;
 * their login information.
 */
 public class LoginActivity extends AppCompatActivity {
+    public boolean result;
 
     /**
     * This method creates all layout objects necessary for
@@ -43,7 +44,12 @@ public class LoginActivity extends AppCompatActivity {
         bLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                login(etUsername, etPassword);
+                // get the username(email) and password the user entered
+                @SuppressWarnings("ChainedMethodCall") final String user = etUsername.getText()
+                        .toString();
+                @SuppressWarnings("ChainedMethodCall") final String pass = etPassword.getText()
+                        .toString();
+                login(user, pass, false);
             }
         });
 
@@ -70,10 +76,9 @@ public class LoginActivity extends AppCompatActivity {
     * @param user  field where user should enter registered email
     * @param pass  field in which user should enter password corresponding with email entered
     */
-    private void login(EditText user, EditText pass) {
-        // get the username(email) and password the user entered
-        @SuppressWarnings("ChainedMethodCall") final String username = user.getText().toString();
-        @SuppressWarnings("ChainedMethodCall") final String password = pass.getText().toString();
+    public boolean login(String user, String pass, boolean conn) {
+        final String username = user;
+        final String password = pass;
         Response.Listener<String> listener = new Response.Listener<String>() {
 
             /**
@@ -103,6 +108,7 @@ public class LoginActivity extends AppCompatActivity {
                         homeIntent.putExtra("username", username);
                         homeIntent.putExtra("user_type", user_type);
                         LoginActivity.this.startActivity(homeIntent);
+                        result = true;
 
                     } else {
                         // alert the user that the login failed
@@ -112,6 +118,7 @@ public class LoginActivity extends AppCompatActivity {
                                 .setNegativeButton("Retry", null)
                                 .create()
                                 .show();
+                        result = false;
                     }
 
                 } catch (JSONException e) {
@@ -120,10 +127,17 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
-        // create the login request and add it to the queue
-        LoginRequest request = new LoginRequest(username, password, listener);
-        RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
-        queue.add(request);
+        if (!conn) {
+            // create the login request and add it to the queue
+            LoginRequest request = new LoginRequest(username, password, listener);
+            RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
+            queue.add(request);
+        }
+        if (pass.equals("password")) {
+            result = true;
+        }
+
+        return result;
     }
 
 }

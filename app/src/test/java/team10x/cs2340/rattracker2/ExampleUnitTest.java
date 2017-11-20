@@ -1,5 +1,6 @@
 package team10x.cs2340.rattracker2;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -10,6 +11,8 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ExampleUnitTest {
+    LoginActivity loginActivity;
+
     @Test
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
@@ -25,5 +28,22 @@ public class ExampleUnitTest {
         assertEquals(test.register("testN","testUN", "testPW","TestT", false, true),1);
         assertEquals(test.register("testN","testUN", "testPW","TestT", false, false),2);
 
+    }
+    @Before
+    public void LoginSetup() {
+        loginActivity = new LoginActivity();
+    }
+
+    @Test
+    public void testLogin() throws Exception {
+        boolean result = loginActivity.login("kdagley14@gmail.com",
+                "thisisthewrongpassword",true);
+        assertEquals(false, result);
+
+        result = loginActivity.login("hackerz@stealyoman.org", "WRONG", true);
+        assertEquals(false, result);
+
+        result = loginActivity.login("kdagley14@gmail.com", "password", true);
+        assertEquals(true, result);
     }
 }
