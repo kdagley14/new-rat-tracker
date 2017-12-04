@@ -23,6 +23,7 @@ import com.android.volley.toolbox.Volley;
  * then will return an error message
  */
 public class CreateReportActivity extends AppCompatActivity {
+    private ActionBarDrawerToggle mToggle;
 
     /**
     * This method creates all of the necessary layout 
@@ -34,7 +35,7 @@ public class CreateReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_report);
 
         DrawerLayout mDrawerLayout = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle mToggle = new ActionBarDrawerToggle(CreateReportActivity.this,
+        mToggle = new ActionBarDrawerToggle(CreateReportActivity.this,
                 mDrawerLayout, R.string.open, R.string.closed);
 
         //the objects from the layout
@@ -137,5 +138,16 @@ public class CreateReportActivity extends AppCompatActivity {
             }
         });
 
+    }
+    /**
+     * This method is just confirming that the item selected
+     * in the navigation menu equals the Home Activity selection.
+     *
+     * @param item  MenuItem being compared
+     * @return boolean  true or false value
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return mToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 }
