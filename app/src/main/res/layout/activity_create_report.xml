@@ -23,7 +23,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="88dp"
             tools:ignore="HardcodedText" />
 
         <EditText
@@ -31,97 +30,97 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="85dp"
+            android:layout_marginStart="85dp"
             android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="Date (yyyy-mm-dd)"
             android:inputType="date"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvHeading"
-            android:layout_marginStart="85dp"
             tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/etLocationType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="85dp"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="0dp"
             android:ems="10"
             android:hint="Location Type"
             android:inputType="textPersonName"
-            android:layout_marginLeft="85dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginTop="0dp"
             app:layout_constraintTop_toBottomOf="@+id/etDate"
-            android:layout_marginStart="85dp"
             tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/etZipCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="85dp"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="0dp"
             android:ems="10"
             android:hint="Zip Code"
             android:inputType="number"
-            android:layout_marginLeft="85dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginTop="0dp"
             app:layout_constraintTop_toBottomOf="@+id/etLocationType"
-            android:layout_marginStart="85dp"
             tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/etAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="85dp"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="0dp"
             android:ems="10"
             android:hint="Address"
             android:inputType="textPersonName"
-            android:layout_marginLeft="85dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginTop="0dp"
             app:layout_constraintTop_toBottomOf="@+id/etZipCode"
-            android:layout_marginStart="85dp"
             tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/etCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="85dp"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="0dp"
             android:ems="10"
             android:hint="City"
             android:inputType="textPersonName"
-            android:layout_marginLeft="85dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginTop="0dp"
             app:layout_constraintTop_toBottomOf="@+id/etAddress"
-            android:layout_marginStart="85dp"
             tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/etBorough"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="85dp"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="0dp"
             android:ems="10"
             android:hint="Borough"
             android:inputType="textPersonName"
-            android:layout_marginLeft="85dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginTop="0dp"
             app:layout_constraintTop_toBottomOf="@+id/etCity"
-            android:layout_marginStart="85dp"
             tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/etLatitude"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="85dp"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="0dp"
             android:ems="10"
             android:hint="Latitude"
             android:inputType="numberDecimal"
-            android:layout_marginLeft="85dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginTop="0dp"
             app:layout_constraintTop_toBottomOf="@+id/etBorough"
-            android:layout_marginStart="85dp"
             tools:ignore="HardcodedText" />
 
         <EditText
@@ -129,37 +128,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="85dp"
+            android:layout_marginStart="85dp"
             android:layout_marginTop="0dp"
             android:ems="10"
             android:hint="Longitude"
             android:inputType="numberDecimal"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etLatitude"
-            android:layout_marginStart="85dp"
             tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/clear_button"
-            android:layout_width="121dp"
+            android:layout_width="wrap_content"
             android:layout_height="45dp"
-            android:layout_marginBottom="40dp"
-            android:layout_marginLeft="17dp"
+            android:layout_marginBottom="28dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:text="Clear"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/create_button"
-            android:layout_marginStart="17dp"
+            app:layout_constraintEnd_toStartOf="@+id/create_button"
+            app:layout_constraintStart_toStartOf="parent"
             tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/create_button"
-            android:layout_width="121dp"
+            android:layout_width="200dp"
             android:layout_height="45dp"
-            android:layout_marginBottom="40dp"
-            android:layout_marginLeft="66dp"
+            android:layout_marginBottom="28dp"
+            android:layout_marginEnd="32dp"
+            android:background="@android:color/holo_green_light"
             android:text="Create"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginStart="66dp"
+            app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="HardcodedText" />
 
     </android.support.constraint.ConstraintLayout>
