@@ -94,8 +94,8 @@ public class LoginActivity extends AppCompatActivity {
                         // alert the user that the login failed
                         AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                         //noinspection ChainedMethodCall,ChainedMethodCall,ChainedMethodCall
-                        builder.setMessage("Login Failed")
-                                .setNegativeButton("Retry", null)
+                        builder.setMessage("Account locked - contact an admin to regain access")
+                                .setNegativeButton("OK", null)
                                 .create()
                                 .show();
                     }
@@ -138,25 +138,31 @@ public class LoginActivity extends AppCompatActivity {
                         result = true;
 
                     } else {
-                        // alert the user that the login failed
-                        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                        //noinspection ChainedMethodCall,ChainedMethodCall,ChainedMethodCall
-                        builder.setMessage("Login Failed")
-                                .setNegativeButton("Retry", null)
-                                .create()
-                                .show();
-                        result = false;
                         if (username.equals(prevUsername)) {
                             attempts++;
                         } else {
                             attempts = 0;
                         }
-                        if (attempts >= 3) {
+
+
+                        result = false;
+
+                        if (attempts >= 2) {
                             //lock out user
-                            LockRequest lockRequest = new LockRequest(username,locklistener);
+                            LockRequest lockRequest = new LockRequest(username, locklistener);
                             RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                             queue.add(lockRequest);
+                        } else {
+                            // alert the user that the login failed
+                            AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                            //noinspection ChainedMethodCall,ChainedMethodCall,ChainedMethodCall
+                            builder.setMessage("Login Failed\n(account locks after 3 attempts)")
+                                    .setNegativeButton("Retry", null)
+                                    .create()
+                                    .show();
                         }
+                        prevUsername = username;
+
                     }
 
                 } catch (JSONException e) {
