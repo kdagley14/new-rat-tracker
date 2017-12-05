@@ -21,6 +21,10 @@ class NavigationDrawer {
     */
     public void getActivityOptions(AppCompatActivity currActivity, MenuItem menuItem) {
         switch (menuItem.getItemId()) {
+            case (R.id.admin_page):
+                Intent adminPageIntent = new Intent(currActivity, AdminActivity.class);
+                currActivity.startActivity(adminPageIntent);
+                break;
             case (R.id.reports_list):
                 Intent reportsListIntent = new Intent(currActivity, HomeActivity.class);
                 currActivity.startActivity(reportsListIntent);

@@ -22,6 +22,7 @@
     <string name="user_type">User Type</string>
     <string name="open">Open</string>
     <string name="closed">Closed</string>
+    <string name="user_list">List of Users</string>
 
     <string-array name="user_array">
         <item>User</item>
