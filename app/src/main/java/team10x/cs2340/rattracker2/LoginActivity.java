@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,7 +22,10 @@ import org.json.JSONObject;
 * their login information.
 */
 public class LoginActivity extends AppCompatActivity {
+
     private boolean result;
+    private String prevUsername = "";
+    private int attempts = 0;
 
     /**
     * This method creates all layout objects necessary for
@@ -79,6 +83,29 @@ public class LoginActivity extends AppCompatActivity {
     public boolean login(String user, String pass, boolean conn) {
         final String username = user;
         final String password = pass;
+
+        final Response.Listener<String> locklistener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+                    boolean success = jsonResponse.getBoolean("success");
+                    if (success) {
+                        // alert the user that the login failed
+                        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                        //noinspection ChainedMethodCall,ChainedMethodCall,ChainedMethodCall
+                        builder.setMessage("Login Failed")
+                                .setNegativeButton("Retry", null)
+                                .create()
+                                .show();
+                    }
+                } catch (Exception e) {
+                    Log.d("yikes", "lockout failed");
+                }
+
+            }
+        };
+
         Response.Listener<String> listener = new Response.Listener<String>() {
 
             /**
@@ -119,6 +146,17 @@ public class LoginActivity extends AppCompatActivity {
                                 .create()
                                 .show();
                         result = false;
+                        if (username.equals(prevUsername)) {
+                            attempts++;
+                        } else {
+                            attempts = 0;
+                        }
+                        if (attempts >= 3) {
+                            //lock out user
+                            LockRequest lockRequest = new LockRequest(username,locklistener);
+                            RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
+                            queue.add(lockRequest);
+                        }
                     }
 
                 } catch (JSONException e) {
